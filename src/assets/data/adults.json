@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1666666",
+        "name":"Alberto Ruiz",
+        "birthDate": "01/05/1940"       
+    },
+    {
+        "id": "17777777",
+        "name":"Rosario Gutierrez",
+        "birthDate": "05/10/1936"       
+    },
+    {
+        "id": "654321",
+        "name":"Juan Botero",
+        "birthDate": "09/08/1943"       
+    },
+    {
+        "id": "123456",
+        "name":"Andrés Fernandez",
+        "birthDate": "01/05/1940"       
+    },
+    {
+        "id": "741258",
+        "name":"Lucía Benitez",
+        "birthDate": "11/01/1947"       
+    },
+    {
+        "id": "963258",
+        "name":"Paco Tamayo",
+        "birthDate": "03/23/1942"       
+    }
+]

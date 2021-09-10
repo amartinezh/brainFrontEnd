@@ -1,0 +1,59 @@
+<ion-header translucent="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button menu="main-menu"></ion-menu-button>
+        </ion-buttons>
+
+        <ion-title class="ion-text-capitalize">Inicio</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-content fullscreen="true">
+        <img src="../assets/img/brain3.png">
+
+        <h1 class="ion-text-center">Mnemosyne</h1>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button
+                        color="primary"
+                        expand="block"
+                        routerLink="/create-session"
+                        size="large"
+                    >Crear Sesión</ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button
+                        color="primary"
+                        expand="block"
+                        routerLink="/create-adult"
+                        size="large"
+                    >Registrar Adulto</ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col>
+                    <ion-button
+                        color="primary"
+                        expand="block"
+                        routerLink="/support"
+                        size="large"
+                    >Ayuda</ion-button>
+                </ion-col>
+
+                <ion-col>
+                    <ion-button
+                        color="primary"
+                        expand="block"
+                        routerLink="/about"
+                        size="large"
+                    >Acerca De</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+</ion-content>

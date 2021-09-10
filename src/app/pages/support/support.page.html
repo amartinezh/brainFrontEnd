@@ -1,0 +1,28 @@
+<app-header title="Ayuda"></app-header>
+
+<ion-content>
+
+    <div class="support-logo">
+        <img src="assets/img/ucp-logo.png" alt="UCP Logo">
+    </div>
+    
+      <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label position="stacked" color="primary">Ingresa tu solicitud aquí abajo.</ion-label>
+            <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+    
+        <ion-text color="danger">
+          <p [hidden]="supportQuestion.valid || submitted === false" class="ion-padding-start">
+            Debes escribir un mensaje para poder enviarlo.
+          </p>
+        </ion-text>
+    
+        <div class="ion-padding">
+          <ion-button expand="block" type="submit">Enviar</ion-button>
+        </div>
+      </form>
+
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header translucent="true">
+    <ion-toolbar>
+        <ion-title class="ion-text-capitalize">Registrarse</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="signup-logo">
+        <img src="assets/img/brain3.png" alt="Ionic Logo">
+    </div>
+    
+    <form #signupForm="ngForm" novalidate>
+    <ion-list lines="none">
+        <ion-item>
+            <ion-label position="floating" color="primary">DNI</ion-label>
+            <ion-input [(ngModel)]="user.id" name="id" type="number" #id="ngModel" inputmode="number" required>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" color="primary">Nombre completo</ion-label>
+            <ion-input [(ngModel)]="user.name" name="name" type="text" #name="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" color="primary">Correo Electrónico</ion-label>
+            <ion-input [(ngModel)]="user.email" name="email" type="email" #email="ngModel" inputmode="email" required>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" color="primary">Contraseña</ion-label>
+            <ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" color="primary">Número Telefónico</ion-label>
+            <ion-input [(ngModel)]="user.cellphone" name="cellphone" type="tel" #cellphone="ngModel" inputmode="tel" required>
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" color="primary">Fecha de Nacimiento</ion-label>
+            <ion-datetime [(ngModel)]="user.birthDate" name="birthDate" #birthDate="ngModel" displayFormat="DD/MM/YYYY" min="1920-01-01" max="2012-12-09" value="2000-01-01T15:03:46.789"></ion-datetime>
+        </ion-item>
+        <ion-text color="danger">
+            <p [hidden]="password.valid || submitted == false || id.valid || name.valid || email.valid || cellphone.valid" class="ion-padding-start">1 or more fields are missing.</p>
+        </ion-text>
+    </ion-list>
+        <div class="ion-padding">
+            <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Registrar</ion-button>
+        </div>
+    </form>
+    
+
+</ion-content>

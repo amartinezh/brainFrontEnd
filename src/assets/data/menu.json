@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "stopwatch-outline",
+    "name": "Crear Sesión de Trabajo",
+    "redirectTo": "/create-session"
+  },
+  {
+    "icon": "file-tray-stacked-outline",
+    "name": "Moódulos",
+    "redirectTo": "/modules"
+  },
+  {
+    "icon": "information-circle-outline",
+    "name": "Acerca de",
+    "redirectTo": "/about"
+  }  
+]

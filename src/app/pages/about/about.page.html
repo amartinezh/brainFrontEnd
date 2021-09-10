@@ -1,0 +1,53 @@
+<app-header title="Acerca de"></app-header>
+
+<ion-content>
+
+    <div class="about-header">
+        <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
+        <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
+    </div>
+
+    <div class="about-info">
+        <h1 class="ion-padding-top ion-padding-start">Acerca de Mnemosyne</h1>
+    
+        <p class="ion-padding-start ion-padding-end" text-align="justify">
+          Mnemosyne surge como resultado de una investigación que prentende medir, con pruebas neuropsicologicas estandarizadas, los efectos producidos por el programa de entrenamiento de la memoria en el adulto mayor normal y patológico; con un entrenamiento intensivo y con un seguimiento intensivo (tres encuentros de dos horas por semana). Además se trabajará con un grupo de referencia que estará constituido por los ancianos sanos y nos permitirá obtener un indicador de acercamiento o desviación de un desempeño típico.
+        </p>
+    
+        <h2 class="ion-padding-top ion-padding-start">Equipo.</h2>
+    
+        <ion-list lines="none">
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8jQTTENFBfkU2rF3uNp87T-1ztULwO7Lphw&usqp=CAU">
+            </ion-avatar>
+            <ion-label>Rosario Iodice.</ion-label>
+            <p>Director.</p>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8jQTTENFBfkU2rF3uNp87T-1ztULwO7Lphw&usqp=CAU">
+            </ion-avatar>
+            <ion-label>Andres M. Martinez.</ion-label>
+            <p>Subdirector.</p>
+          </ion-item>
+
+        </ion-list>
+
+        <h3 class="ion-padding-top ion-padding-start">Contáctanos</h3>
+    
+        <ion-list lines="none">
+          <ion-item>
+            <p>
+              investigaciones@ucp.edu.co
+            </p>
+          </ion-item>
+          <ion-item>
+            <p>
+              PBX (+57) (6) 312 4000
+            </p>
+          </ion-item>
+        </ion-list>
+      </div>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<!-- <app-header title="Login"></app-header> -->
+
+<ion-header translucent="true">
+    <ion-toolbar>
+        <ion-title class="ion-text-capitalize">Iniciar Sesión</ion-title>
+
+        <ion-buttons slot="end" *ngIf="loggedIn">
+            <ion-button routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="login-logo">
+        <img
+            src="assets/img/brain3.png"
+            alt="Ionic logo"
+        >
+    </div>
+
+    <form #loginForm="ngForm" novalidate="novalidate">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating" color="primary">Correo electrónico</ion-label>
+
+                <ion-input [(ngModel)]="user.email" name="email" type="email" #email="ngModel" spellcheck="false" autocapitalize="off" required="required"></ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+                <p [hidden]="email.valid || submitted == false" class="ion-padding-start">Se requiere un correo electrónico.</p>
+            </ion-text>
+
+            <ion-item>
+                <ion-label position="floating" color="primary">Contraseña</ion-label>
+
+                <ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required="required"></ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+                <p [hidden]="password.valid || submitted == false" class="ion-padding-start">Se requiere una contraseña.</p>
+            </ion-text>
+        </ion-list>
+
+        <ion-row>
+            <ion-col>
+                <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Iniciar Sesión</ion-button>
+            </ion-col>
+
+            <ion-col>
+                <ion-button (click)="onSignup()" color="light" expand="block">Registrarse</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

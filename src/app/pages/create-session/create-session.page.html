@@ -1,0 +1,41 @@
+<app-header title="Crear Sesión de Trabajo"></app-header>
+<ion-content>
+    <div class="about-header">
+        <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
+        <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
+    </div>
+
+    <div class="about-info">
+        <h1 class="ion-padding-top ion-padding-start">Crear Sesión de Trabajo.</h1>
+    
+        <p class="ion-padding-start ion-padding-end">
+          Por favor seleccione los ejercicios que se aplicarán durante la sesión, así como el adulto.
+        </p>
+    
+        <h2 class="ion-padding-top ion-padding-start">Seleccione los ejercicios.</h2>
+    
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label>Ejercicios</ion-label>
+            <ion-select [compareWith]="compareWith" multiple="true" placeholder="Select one or more" (ionChange)="exercisesValue($event)">
+                <ion-select-option *ngFor="let e of exercises | async" [value]="e">{{e.exerciseNumber}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+        <h3 class="ion-padding-top ion-padding-start">Seleccione el adulto.</h3>
+    
+        <ion-list lines="none">
+            <ion-item slot="fixed">
+                <ion-label>Adulto</ion-label>
+                <ion-select [compareWith]="compareWith" placeholder="Select one" (ionChange)="adultValue($event)">
+                    <ion-select-option *ngFor="let a of adults" [value]="a">{{a.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+        </ion-list>
+
+        <div class="ion-padding">
+            <ion-button (click)="submit()" type="submit" expand="block">Crear</ion-button>
+        </div>
+    </div>
+</ion-content>

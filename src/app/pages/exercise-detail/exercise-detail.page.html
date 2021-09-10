@@ -1,0 +1,32 @@
+<app-header title="Detalles del Ejercicio"></app-header>
+
+<ion-content class="speaker-detail">
+    <div class="speaker-background">
+        <img
+            [src]="exercise?.icon"
+            [alt]="exercise?.exerciseNumber"
+        >
+
+        <h2 class="ion-text-center">
+            {{exercise?.exerciseNumber}}. {{exercise?.title}}
+        </h2>
+    </div>
+
+    <div class="ion-padding speaker-detail">
+        <p>{{exercise?.description}}</p>
+
+        <hr>
+        <ion-item detail="false" *ngIf="exercise?.content">
+            <p>
+                {{exercise?.content}}
+            </p>
+        </ion-item>
+        <ion-item detail="false" *ngIf="exercise?.media">
+            <ion-slides pager="true">
+                <ion-slide *ngFor="let m of exercise?.media">
+                    <ion-img [src]="m"></ion-img>
+                </ion-slide>
+            </ion-slides>
+        </ion-item>
+    </div>
+</ion-content>

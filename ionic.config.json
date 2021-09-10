@@ -1,0 +1,7 @@
+{
+  "name": "MnemosyneApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
