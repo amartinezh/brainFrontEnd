@@ -1,0 +1,54 @@
+<app-header title="Resultados"></app-header>
+
+
+<ion-content>
+
+  <div class="about-header">
+      <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
+      <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
+  </div>
+
+  <div class="about-info">
+      <h1 class="ion-padding-top ion-padding-start">Resultados</h1>
+  
+      <p class="ion-padding-start ion-padding-end" text-align="center">
+        Aqui iran los resultados y el grafico
+      </p>
+  
+      <h2 class="ion-padding-top ion-padding-start">Personas.</h2>
+  
+      <ion-list lines="none">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="/assets/img/user.png">
+          </ion-avatar>
+          <ion-label>Nombre cuidador</ion-label>
+          <p>Cuidador.</p>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="/assets/img/user.png">
+          </ion-avatar>
+          <ion-label>Nombre Adulto.</ion-label>
+          <p>Adulto Mayor.</p>
+        </ion-item>
+
+      </ion-list>
+
+      <h3 class="ion-padding-top ion-padding-start">Observaciones</h3>
+  
+      <ion-card class="e-card">
+
+        <ion-card-content>
+          <ion-list lines="none">
+
+            <ion-item detail="false">
+              <ion-label position="floating">Ingrese aqui las observaciones pertinentes.</ion-label>
+              <ion-textarea></ion-textarea>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+</ion-content>

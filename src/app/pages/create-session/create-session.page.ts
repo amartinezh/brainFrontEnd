@@ -4,11 +4,14 @@ import { Observable } from 'rxjs';
 import { Adult } from 'src/app/interfaces/adult';
 import { Exercise } from 'src/app/interfaces/exercise';
 import { DataService } from 'src/app/services/data.service';
+import { AdultService } from 'src/app/services/adult.service';
 import { WorkSession } from '../../interfaces/workSession';
 
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { User } from '../../interfaces/user';
+import { UserData } from '../../services/user-data';
 
 @Component({
   selector: 'app-create-session',
@@ -21,26 +24,54 @@ export class CreateSessionPage implements OnInit {
   exercises: Observable<Exercise[]>;
   // adults: Observable<Adult[]>;
   adults: Adult[] = [];
+  adultsDB:  any;
   eValues: Exercise[];
   aValues: Adult[];
+  user: any;
   workSession: WorkSession;
   sessionId: number = 0;
 
-  constructor( private dataService: DataService, private storage: Storage, private alertCtrl: AlertController, private router: Router,  private userData: DataService) { }
+  constructor( private dataService: DataService, private storage: Storage, private alertCtrl: AlertController, private router: Router,  private userData: UserData, private adultData: AdultService) { }
 
   async ngOnInit() {
     this.exercises = this.dataService.getExercises();
     // this.adults = this.dataService.getAdults();
     this.loadAdults();
+    this.loadAdultsDB();
+
     await this.storage.create();
 
   }
 
   loadAdults(){
-    this.userData.getAdultsStorage().then((adults)=>{
+    this.dataService.getAdultsStorage().then((adults)=>{
       this.adults=adults;
       console.log('Se cargaron correctamente todos ', this.adults);
     });
+  }
+
+
+  async loadAdultsDB() {
+    let err: boolean = false;
+    try {
+      let value = await this.adultData.getAdults();
+      console.log(value);
+      this.adultsDB = value;
+      console.log("Este es AdultsDB ", this.adultsDB);
+      if (value == null) {
+        err = true;
+
+        console.log('No se encontraron adultos para cargar');
+      } else {
+
+        console.log('Se cargaron correctamente');
+        
+      }
+    } catch (error) {
+      console.log('Hubo un error trayendo los adultos: ');
+      console.log(error);
+    }
+
   }
 
   compareWith(o1: Exercise, o2: Exercise | Exercise[]) {

@@ -4,6 +4,7 @@ import { Exercise } from 'src/app/interfaces/exercise';
 import { DataService } from 'src/app/services/data.service';
 import { Storage } from '@ionic/storage';
 import { Adult } from '../../interfaces/adult';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exercise',
@@ -15,8 +16,10 @@ export class ExercisePage implements OnInit {
   exercises: Observable<Exercise[]>;
   aSession: Adult;
   eSession: Exercise[];
+  eResults: {value: string, Excercise}[];
+  results: string[]=[];
 
-  constructor( private dataService: DataService, private storage: Storage) { }
+  constructor( private dataService: DataService, private storage: Storage, public router: Router) { }
 
   ngOnInit() {
     // this.exercises = this.dataService.getExercises();
@@ -30,6 +33,8 @@ export class ExercisePage implements OnInit {
 
   segmentChanged(ev: any) {
     console.log('Segment changed', ev);
+    console.log(ev.detail.value);
+    this.results.push(ev.detail.value);
   }
 
   async getExercises() {
@@ -44,6 +49,11 @@ export class ExercisePage implements OnInit {
   setSessionAdult(adult: Adult){
     this.aSession = adult;
     console.log("El adulto ha sido cargado correctamente: ", this.aSession);
+  }
+
+  onClick(){
+    console.log(this.results);
+    this.router.navigateByUrl('/session-results');
   }
 
 }

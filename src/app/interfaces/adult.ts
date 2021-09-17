@@ -1,5 +1,5 @@
 export interface Adult{
     id: string;
     name: string;
-    birthDate: string;
+    birth_date: string;
 }

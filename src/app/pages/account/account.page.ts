@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserData } from 'src/app/services/user-data';
+import { UserService } from '../../services/user.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-account',
@@ -13,13 +15,15 @@ export class AccountPage implements OnInit {
   ngOnInit() {
   }
 
-  username: string;
+  user: any;
+  usersDB: any;
 
   constructor(
     public alertCtrl: AlertController,
     public router: Router,
     public userData: UserData,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private userService: UserService
   ) { }
 
   ngAfterViewInit() {
@@ -48,7 +52,7 @@ export class AccountPage implements OnInit {
         {
           type: 'text',
           name: 'username',
-          value: this.username,
+          value: this.user,
           placeholder: 'Nombre'
         }
       ]
@@ -57,10 +61,33 @@ export class AccountPage implements OnInit {
   }
 
   getUsername() {
-    this.userData.getUsername().then((username) => {
-      this.username = username;
+    this.userData.getUser().then((user) => {
+      this.user = user;
     });
   }
+
+
+  // async getUsername() {
+  //   let err: boolean = false;
+  //   try {
+  //     let value = await this.userService.getUsers();
+  //     console.log(value);
+  //     this.usersDB = value;
+  //     console.log("Este es usersDB ", this.usersDB);
+  //     if (value == null) {
+  //       err = true;
+
+  //       console.log('No se encontraron usuarios para cargar');
+  //     } else {
+
+  //       console.log('Se cargaron correctamente');
+        
+  //     }
+  //   } catch (error) {
+  //     console.log('Hubo un error trayendo los usuarios: ');
+  //     console.log(error);
+  //   }
+  // }
 
   changePassword() {
     console.log('Clicked to change password');

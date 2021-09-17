@@ -10,21 +10,21 @@
     <ion-list lines="none">
         <ion-item>
             <ion-label position="floating" color="primary">DNI</ion-label>
-            <ion-input [(ngModel)]="user.id" name="id" type="number" #id="ngModel" inputmode="number" required>
+            <ion-input [(ngModel)]="adult.id" name="id" type="number" #id="ngModel" inputmode="number" required>
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating" color="primary">Nombre Completo</ion-label>
-            <ion-input [(ngModel)]="user.name" name="name" type="text" #name="ngModel" required>
+            <ion-input [(ngModel)]="adult.name" name="name" type="text" #name="ngModel" required>
             </ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating" color="primary">Fecha de Nacimiento</ion-label>
-            <ion-datetime [(ngModel)]="user.birthDate" name="birthDate" #birthDate="ngModel" displayFormat="DD/MM/YYYY" min="1920-01-01" max="2012-12-09" value="2000-01-01T15:03:46.789"></ion-datetime>
+            <ion-datetime [(ngModel)]="adult.birth_date" name="birth_date" #birthDate="ngModel" displayFormat="DD/MM/YYYY" min="1920-01-01" max="2012-12-09" value="2000-01-01T15:03:46.789"></ion-datetime>
         </ion-item>
     </ion-list>
         <div class="ion-padding">
-            <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Register</ion-button>
+            <ion-button (click)="onAdultSignup(signupForm)" type="submit" expand="block">Register</ion-button>
         </div>
     </form>
 </ion-content>

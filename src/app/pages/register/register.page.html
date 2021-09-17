@@ -38,7 +38,7 @@
         </ion-item>
         <ion-item>
             <ion-label position="floating" color="primary">Fecha de Nacimiento</ion-label>
-            <ion-datetime [(ngModel)]="user.birthDate" name="birthDate" #birthDate="ngModel" displayFormat="DD/MM/YYYY" min="1920-01-01" max="2012-12-09" value="2000-01-01T15:03:46.789"></ion-datetime>
+            <ion-datetime [(ngModel)]="user.birth_date" name="birth_date" #birth_date="ngModel" displayFormat="DD/MM/YYYY" min="1920-01-01" max="2012-12-09" value="2000-01-01T15:03:46.789"></ion-datetime>
         </ion-item>
         <ion-text color="danger">
             <p [hidden]="password.valid || submitted == false || id.valid || name.valid || email.valid || cellphone.valid" class="ion-padding-start">1 or more fields are missing.</p>

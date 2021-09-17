@@ -58,7 +58,11 @@ const routes: Routes = [
   {
     path: 'adults-info',
     loadChildren: () => import('./pages/adults-info/adults-info.module').then( m => m.AdultsInfoPageModule)
+  },  {
+    path: 'session-results',
+    loadChildren: () => import('./pages/session-results/session-results.module').then( m => m.SessionResultsPageModule)
   },
+
 ];
 
 @NgModule({

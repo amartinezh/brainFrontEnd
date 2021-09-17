@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { DataService } from 'src/app/services/data.service';
 import { Adult } from 'src/app/interfaces/adult';
+import { AdultService } from 'src/app/services/adult.service';
 import { Platform, ToastController, AlertController } from '@ionic/angular';
 
 @Component({
@@ -13,59 +14,109 @@ export class AdultsInfoPage implements OnInit {
 
   adultsJSON: Adult[] = [];
   adults: Adult[] = [];
+  adultsDB: any;
   newAdult: Adult;
   newA: Adult;
 
-  constructor(private storage: Storage, private userData: DataService, private plt: Platform, private toastController: ToastController, private alertCtrl: AlertController) {
-    this.plt.ready().then(()=>{
-      this.loadAdultsJSONtoStorage();
-      setTimeout(() => {
-        this.jsonAdults();  
-      }, 2000);
-      setTimeout(() => {
-        this.loadAdults();  
-      }, 2100);
+  constructor(private storage: Storage, private userData: DataService, private plt: Platform, private toastController: ToastController, private alertCtrl: AlertController, private adultService: AdultService) {
+    // this.plt.ready().then(()=>{
+    //   this.loadAdultsJSONtoStorage();
+    //   setTimeout(() => {
+    //     this.jsonAdults();  
+    //   }, 2000);
+    //   setTimeout(() => {
+    //     this.loadAdults();  
+    //   }, 2100);
       
-    });
+    // });
+
+    this.loadAdultsDB();
    }
 
   ngOnInit() {
   }
 
-  async loadAdultsJSONtoStorage(){
-    this.userData.getAdults().subscribe((adults: Adult[])=>{
-      this.adultsJSON = adults;
-      console.log(this.adults);      
-    });
-  }
+  // async loadAdultsJSONtoStorage(){
+  //   this.userData.getAdults().subscribe((adults: Adult[])=>{
+  //     this.adultsJSON = adults;
+  //     console.log(this.adults);      
+  //   });
+  // }
 
-  loadAdults(){
-    this.userData.getAdultsStorage().then((adults)=>{
-      this.adults=adults;
-      console.log('Se cargaron correctamente todos ', this.adults);
-    });
-  }
+  // loadAdults(){
+  //   this.userData.getAdultsStorage().then((adults)=>{
+  //     this.adults=adults;
+  //     console.log('Se cargaron correctamente todos ', this.adults);
+  //   });
+  // }
 
-  jsonAdults(){
-    for(let a of this.adultsJSON){
-      this.userData.addAdultStorage(a);
-      console.log('adulto '+a.name+' añadido al storage');
+  async loadAdultsDB() {
+    let err: boolean = false;
+    try {
+      let value = await this.adultService.getAdults();
+      console.log(value);
+      this.adultsDB = value;
+      console.log("Este es AdultsDB ", this.adultsDB);
+      if (value == null) {
+        err = true;
+
+        console.log('No se encontraron adultos para cargar');
+      } else {
+
+        console.log('Se cargaron correctamente');
+        
+      }
+    } catch (error) {
+      console.log('Hubo un error trayendo los adultos: ');
+      console.log(error);
     }
-    console.log(this.adultsJSON);
+
   }
 
-  async update(adult: Adult){
-    this.userData.updateAdultStorage(adult).then(()=>{
-      this.presentToast("Adulto Actualizado.","secondary");
-      this.loadAdults();
-    });
+  // jsonAdults(){
+  //   for(let a of this.adultsJSON){
+  //     this.userData.addAdultStorage(a);
+  //     console.log('adulto '+a.name+' añadido al storage');
+  //   }
+  //   console.log(this.adultsJSON);
+  // }
+
+  // async update(adult: Adult){
+  //   this.userData.updateAdultStorage(adult).then(()=>{
+  //     this.presentToast("Adulto Actualizado.","secondary");
+  //     this.loadAdults();
+  //   });
+  // }
+
+  async updateAdult(adult: Adult){
+    let err: boolean = false;
+    try {
+      await this.adultService.updateAdult(adult);
+      this.presentToast("El adulto ha sido actualizado exitosamente.", "success");
+      this.loadAdultsDB();
+    } catch (error) {
+      console.log('Al parecer hubo un error al actualizar el adulto en la Base de Datos.');
+      console.log(error);
+    }
   }
 
-  delete(adult: Adult){
-    this.userData.deleteAdultStorage(adult).then(()=>{
-      this.presentToast("Aduto Eliminado.","danger");
-      this.loadAdults();
-    });
+  // delete(adult: Adult){
+  //   this.userData.deleteAdultStorage(adult).then(()=>{
+  //     this.presentToast("Aduto Eliminado.","danger");
+  //     this.loadAdults();
+  //   });
+  // }
+
+  async deleteAdult(adult: Adult){
+    let err: boolean = false;
+    try {
+      await this.adultService.deleteAdult(adult);
+      this.presentToast("El adulto ha sido eliminado exitosamente.", "success");
+      this.loadAdultsDB();
+    } catch (error) {
+      console.log('Al parecer hubo un error al eliminar el adulto de la Base de Datos.');
+      console.log(error);
+    }
   }
 
   async delay(ms: number) {
@@ -90,7 +141,8 @@ export class AdultsInfoPage implements OnInit {
           name: 'id',
           type: 'text',
           id: 'id',
-          value: a.id
+          value: a.id,
+          disabled: true
         },
         {
           name: 'name',
@@ -99,12 +151,12 @@ export class AdultsInfoPage implements OnInit {
           value: a.name
         },
         {
-          name: 'birthDate',
+          name: 'birth_date',
           type: 'date',
-          id: 'birthDate',
+          id: 'birth_date',
           min: '1920-01-01',
           max: '2000-01-12',
-          value: a.birthDate
+          value: a.birth_date
         }
       ],
       buttons: [
@@ -122,7 +174,8 @@ export class AdultsInfoPage implements OnInit {
             // this.newA.name = data.txtName;
             // this.newA.birthDate = data.txtBirth;
             // console.log(this.newA);
-            this.update(data);
+            this.updateAdult(data);
+            // this.update(data);
           }
         }
       ]

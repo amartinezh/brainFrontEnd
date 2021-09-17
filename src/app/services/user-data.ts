@@ -86,6 +86,13 @@ export class UserData {
   }
 
   
+  loginUser(user: User): Promise<any> {
+    return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
+      this.setUser(user);
+      return window.dispatchEvent(new CustomEvent('user:login'));
+    });
+  }
+
   login(username: string): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUsername(username);
@@ -102,7 +109,7 @@ export class UserData {
 
   logout(): Promise<any> {
     return this.storage.remove(this.HAS_LOGGED_IN).then(() => {
-      return this.storage.remove('username');
+      return this.storage.remove('username'), this.storage.remove('user');
     }).then(() => {
       window.dispatchEvent(new CustomEvent('user:logout'));
     });
@@ -110,6 +117,12 @@ export class UserData {
 
   setUsername(username: string): Promise<any> {
     return this.storage.set('username', username);
+  }
+
+  getUser(): Promise<string> {
+    return this.storage.get('user').then((value) => {
+      return value;
+    });
   }
 
   getUsername(): Promise<string> {
