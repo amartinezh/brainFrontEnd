@@ -98,15 +98,15 @@ export class CreateSessionPage implements OnInit {
     this.presentAlertConfirm();
   }
 
-  exercisesValue(event: CustomEvent){
+  exercisesValue(event: Event){
     // console.log(event.detail.value);
-    this.eValues = event.detail.value;
+    this.eValues = (event as CustomEvent).detail.value;
     console.log(this.eValues);
   }
 
-  adultValue(event: CustomEvent){
+  adultValue(event: Event){
     // console.log(event.detail.value);
-    this.aValues = event.detail.value;
+    this.aValues = (event as CustomEvent).detail.value;
     console.log(this.aValues);
   }
 
