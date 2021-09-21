@@ -13,44 +13,50 @@
 </ion-header>
 
 <ion-content>
-    <div class="login-logo">
-        <img
-            src="assets/img/brain3.png"
-            alt="Ionic logo"
-        >
-    </div>
-
-    <form #loginForm="ngForm" novalidate="novalidate">
-        <ion-list>
-            <ion-item>
-                <ion-label position="floating" color="primary">Correo electrónico</ion-label>
-
-                <ion-input [(ngModel)]="user.email" name="email" type="email" #email="ngModel" spellcheck="false" autocapitalize="off" required="required"></ion-input>
-            </ion-item>
-
-            <ion-text color="danger">
-                <p [hidden]="email.valid || submitted == false" class="ion-padding-start">Se requiere un correo electrónico.</p>
-            </ion-text>
-
-            <ion-item>
-                <ion-label position="floating" color="primary">Contraseña</ion-label>
-
-                <ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required="required"></ion-input>
-            </ion-item>
-
-            <ion-text color="danger">
-                <p [hidden]="password.valid || submitted == false" class="ion-padding-start">Se requiere una contraseña.</p>
-            </ion-text>
-        </ion-list>
-
+    <ion-grid fixed class="ion-padding">
         <ion-row>
-            <ion-col>
-                <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Iniciar Sesión</ion-button>
-            </ion-col>
-
-            <ion-col>
-                <ion-button (click)="onSignup()" color="light" expand="block">Registrarse</ion-button>
-            </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-card class="e-card">
+               <ion-card-header>
+                <img src="assets/img/brain3.png" alt="Brain logo" max-width="100%">
+               </ion-card-header>
+              <ion-card-content>
+                <form #loginForm="ngForm" novalidate="novalidate">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating" color="primary">Correo electrónico</ion-label>
+            
+                            <ion-input [(ngModel)]="user.email" name="email" type="email" #email="ngModel" spellcheck="false" autocapitalize="off" required="required"></ion-input>
+                        </ion-item>
+            
+                        <ion-text color="danger">
+                            <p [hidden]="email.valid || submitted == false" class="ion-padding-start">Se requiere un correo electrónico.</p>
+                        </ion-text>
+            
+                        <ion-item>
+                            <ion-label position="floating" color="primary">Contraseña</ion-label>
+            
+                            <ion-input [(ngModel)]="user.password" name="password" type="password" #password="ngModel" required="required"></ion-input>
+                        </ion-item>
+            
+                        <ion-text color="danger">
+                            <p [hidden]="password.valid || submitted == false" class="ion-padding-start">Se requiere una contraseña.</p>
+                        </ion-text>
+                    </ion-list>
+            
+                    <ion-row>
+                        <ion-col>
+                            <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Iniciar Sesión</ion-button>
+                        </ion-col>
+            
+                        <ion-col>
+                            <ion-button (click)="onSignup()" color="light" expand="block">Registrarse</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
         </ion-row>
-    </form>
+      </ion-grid>
 </ion-content>
