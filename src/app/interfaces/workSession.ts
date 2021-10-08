@@ -8,4 +8,5 @@ export interface WorkSession {
     adult: Adult[];
     user: User;
     date: Date;
+    results: string[];
 }

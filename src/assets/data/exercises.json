@@ -1,7 +1,7 @@
 [
     {
       "exerciseNumber": "Ejercicio 1.1",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Evocación de acontecimientos autobiográficos por el uso de palabras claves.",
       "description": "Con base en las preguntas que se ofrecen, se le pide a la persona que narre acontecimientos relacionados con:",
       "content":"¿Cuál es su fecha de nacimiento?\n - ¿Cuál es el lugar donde pasó su infancia?\n - ¿Quién era tu padre?\n - ¿Quién era tu madre?\n - ¿Cómo se llaman tus hermanos/as?\n - ¿Cuál era la escuela a la que ibas?\n - ¿Vivías en la ciudad o en el campo?\n - ¿Cuál fue tu primer trabajo?\n - ¿Cuál es la fecha de tu matrimonio?\n - ¿En qué iglesia te casaste?\n - ¿Quiénes son tus hijos?\n - ¿Cuál es el viaje que más te ha gustado?\n - ¿Cuál es el mayor logro de tu vida?\n - ¿Cuántos nietos tienes?\n - ¿Cómo se llaman tus nietos?\n - ¿Cuál es tu lugar donde vives ahora?",
@@ -10,7 +10,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 1.2",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Aplicación de un cuestionario de Memoria biográfica.",
       "description": "Se le deben hacer preguntas al adulto mayor referentes a su vida y debe responder correctamente.",
       "content":"",
@@ -19,7 +19,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 1.3",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Identificación de fechas importantes en el ciclo vital del participante usando palabras claves.",
       "description": "Se le harán distintas preguntas al adulto con cada palabra clave de las que se muestran a continuación.",
       "content":"1. Palabra clave: Familia\n-¿Cuál fue el momento más difícil que vivió con su familia?\n-¿Cuál fue el momento más feliz que vivió con su familia?\n-¿Cuándo se le cayó el primer diente a su hijo?\n\n2. Palabra clave: Pareja\n-¿Cuándo conoció a su pareja?\n-¿Cuánto tiempo llevan o llevaban juntos?\n\tA. Entre 2 y 5 años.\n\tB. Entre 5 y 10 años\n\tC. Entre 15 y 20 años\n\tD. Más de 20 años\n-¿Cuándo fue su boda?\n\n3. Palabra clave: Trabajo\n-¿Cuándo fue su primer trabajo?\n-¿A qué edad consiguió su primer trabajo?\n-¿Cuántos trabajos realizo en su vida?\n\tA. 2\n\tB. 3\n\tC. 4\n\tD. Más de 5.\n-¿Cuándo fue su último trabajo?\n\n4. Palabra clave: Niñez\n-¿Dónde creció?\n-¿Qué recuerda de su niñez?\n-¿Qué le gustaba cuando era pequeño?\n-¿Qué no le gustaba cuando era pequeño?\n-¿Qué extraña de cuando era pequeño?\n-¿Qué quería ser cuando fuera grande?\n\n5. Palabra clave: Educación\n-¿Qué es lo que primero que recuerda del estudio?\n-¿Qué recuerda hacer en los recreos?\n-¿Qué recuerda de sus profesores?\n-¿Qué recuerda de sus compañeros?\n\n6. Palabra clave: Pasatiempos\n-¿Anteriormente qué le gustaba hacer en su tiempo libre?\n\n7. Palabra clave: Comida\n-¿Qué aromas y sabores le recuerda la comida?\n\n8. Palabra clave: Emociones\n-¿Cuál fue el momento que más satisfacción trajo a su vida?\n-¿Cuál fue el momento que más desgracia trajo a su vida?\n-¿Qué metas tenia?\n-¿Pudo cumplir alguna de sus metas?\n-¿Qué le hubiera gustado cambiar en su vida?",
@@ -28,7 +28,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 1.4",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Reconstrucción del tiempo vivido (técnica narrativa).",
       "description": "El adulto debe narrar algo de su infancia, cómo estaba compuesta tu familia,  quienes eran sus amigos, cuál era la escuela en la que estudió, cómo era el lugar donde vivía, donde conoció a su pareja, cuándo se casaron, cuántos hijos tuvieron, cuál fue su primer trabajo.",
       "content":"",
@@ -37,7 +37,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 1.5",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Distribución cronológica de las vivencias identificadas.",
       "description": "El adulto debe acomodar en orden todo lo que ha contado, desde lo más antiguo hasta lo más nuevo.",
       "content":"",
@@ -46,7 +46,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 1.6",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Recuerdo de los acontecimientos principales del año en curso.",
       "description": "Se deben hacer preguntas sobre sucesos ocurridos durante el año actual y el adulto debe responder correctamente, por ejemplo.",
       "content":"¿Dónde celebraste el inicio del año actual?\n¿Qué hiciste el día de tu cumpleaños?\n¿Qué hiciste el día de la madre/padre?\n¿Con quién estuviste el día del amor y la amistad?\n¿Dónde celebraste la navidad?",
@@ -55,7 +55,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 2.1",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Mencionar películas y actores.",
       "description": "El adulto debe hacer una lista de las películas que recuerde, luego intentar recordar también actores que participen en estas.",
       "content":"",
@@ -64,7 +64,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 2.2",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Mencionar programas TV / Presentadores / Productores.",
       "description": "El adulto debe hacer una lista de programas de televisión, y de personajes que aparezcan allí.",
       "content":"",
@@ -73,7 +73,7 @@
     },
     {
       "exerciseNumber": "Ejercicio 2.3",
-      "icon": "/assets/img/brain2.png",
+      "icon": "./assets/img/brain2.png",
       "title": "Mencionar personajes famosos",
       "description": "El adulto debe mencionar otros personajes famosos, que no haya nombrado ni en las películas ni en los programas de televisión.",
       "content":"",
@@ -82,32 +82,32 @@
     },
     {
       "exerciseNumber": "Ejercicio Multimedia 1",
-      "icon": "/assets/img/brain.png",
+      "icon": "./assets/img/brain.png",
       "title": "Qué recuerdos le trae la siguiente imagen.",
       "description": "El adulto debe mirar la imagen que se muestra en la pantalla y mencionar algún recuerdo o experiencia que esté asociada a la imagen.",
       "content":"",
       "module": "3",
       "id": "31",
-      "media": ["/assets/img/exe/memory.jpg"]
+      "media": ["./assets/img/exe/memory.jpg"]
     },
     {
       "exerciseNumber": "Ejercicio Multimedia 2",
-      "icon": "/assets/img/brain3.png",
+      "icon": "./assets/img/brain3.png",
       "title": "Mencione las diferencias entre las imágenes.",
       "description": "El adulto debe observar ambas imágenes en pantalla al mismo tiempo y mencionar las diferencias.",
       "content":"",
       "module": "3",
       "id": "32",
-      "media": ["/assets/img/exe/diff.jpg"]
+      "media": ["./assets/img/exe/diff.jpg"]
     },
     {
       "exerciseNumber": "Ejercicio Multimedia 3",
-      "icon": "/assets/img/brain3.png",
+      "icon": "./assets/img/brain3.png",
       "title": "Mencione las diferencias entre las imágenes.",
       "description": "El adulto debe observar la primer imagen por un tiempo, después debe observar la segunda imagen y mencionar lo que perciba que haya cambiado.",
       "content":"",
       "module": "3",
       "id": "33",
-      "media": ["/assets/img/exe/diff2.jpg","/assets/img/exe/diff3.jpg"]
+      "media": ["./assets/img/exe/diff2.jpg","/assets/img/exe/diff3.jpg"]
     }
 ]

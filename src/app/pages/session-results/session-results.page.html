@@ -7,29 +7,35 @@
       <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
       <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
   </div>
-
-  <div class="about-info">
+  <ion-grid fixed class="ion-padding">
+    <div class="about-info">
       <h1 class="ion-padding-top ion-padding-start">Resultados</h1>
-  
-      <p class="ion-padding-start ion-padding-end" text-align="center">
-        Aqui iran los resultados y el grafico
-      </p>
-  
+      <ion-list>
+        
+        <ion-item *ngFor="let e of exercises; let i = index" routerLink="/exercise-detail/{{e.id}}">
+          <ion-label>
+            {{e.exerciseNumber}}
+            <p>{{e.title}}</p>
+          </ion-label>
+          <p *ngIf="results[i] == 'Correct'"><ion-text color="success">Correcto.</ion-text></p>
+          <p *ngIf="results[i] == 'Wrong'"><ion-text color="danger">Erroneo.</ion-text></p>
+        </ion-item>
+      </ion-list>
       <h2 class="ion-padding-top ion-padding-start">Personas.</h2>
   
-      <ion-list lines="none">
+      <ion-list lines="none" *ngIf="loaded">
         <ion-item>
           <ion-avatar slot="start">
-            <img src="/assets/img/user.png">
+            <img src="./assets/img/user.png">
           </ion-avatar>
-          <ion-label>Nombre cuidador</ion-label>
+          <ion-label>{{user.name}}</ion-label>
           <p>Cuidador.</p>
         </ion-item>
         <ion-item>
           <ion-avatar slot="start">
-            <img src="/assets/img/user.png">
+            <img src="./assets/img/user.png">
           </ion-avatar>
-          <ion-label>Nombre Adulto.</ion-label>
+          <ion-label>{{adult.name}}</ion-label>
           <p>Adulto Mayor.</p>
         </ion-item>
 
@@ -50,5 +56,8 @@
         </ion-card-content>
       </ion-card>
     </div>
-
+  </ion-grid>
+  <div class="ion-padding">
+    <ion-button expand="block" type="submit" color="success"  (click)="onClick()">Guardar</ion-button>
+  </div>
 </ion-content>

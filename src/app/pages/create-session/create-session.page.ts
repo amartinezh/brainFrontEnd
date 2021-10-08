@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common'
 
 import { Observable } from 'rxjs';
 import { Adult } from 'src/app/interfaces/adult';
@@ -31,7 +32,7 @@ export class CreateSessionPage implements OnInit {
   workSession: WorkSession;
   sessionId: number = 0;
 
-  constructor( private dataService: DataService, private storage: Storage, private alertCtrl: AlertController, private router: Router,  private userData: UserData, private adultData: AdultService) { }
+  constructor( private dataService: DataService, private storage: Storage, private alertCtrl: AlertController, private router: Router,  private userData: UserData, private adultData: AdultService, public datepipe: DatePipe) { }
 
   async ngOnInit() {
     this.exercises = this.dataService.getExercises();
@@ -89,9 +90,13 @@ export class CreateSessionPage implements OnInit {
   async submit(){
     console.log("submitted");
     var date = new Date();
+    //let dateFormat =this.datepipe.transform(date, 'yyyy-MM-dd');
+    this.user = await this.storage.get('user');
+    console.log(this.user);
 
-    await this.storage.set('workSession', {'id':this.sessionId,'exercises':this.eValues,'adult':this.aValues,'date':date});
+    await this.storage.set('workSession', {'id':this.sessionId,'exercises':this.eValues,'adult':this.aValues, 'user':this.user ,'date':date});
     this.sessionId++;
+    
     const auxiliar = await this.storage.get('workSession');
     console.log(auxiliar);
 

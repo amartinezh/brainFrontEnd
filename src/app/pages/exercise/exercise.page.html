@@ -57,11 +57,11 @@
                 </ion-item>
   
                 <ion-item mode="ios">
-                  <ion-segment (ionChange)="segmentChanged($event)">
-                    <ion-segment-button [value]="e.exerciseNumber + ' correct, index ' + i">
+                  <ion-segment (ionChange)="segmentChanged($event, i)" value="None">
+                    <ion-segment-button value="Correct">
                       <ion-icon name="checkmark" color="success"></ion-icon>
                     </ion-segment-button>
-                    <ion-segment-button [value]="e.exerciseNumber + ' wrong, index ' + i" >
+                    <ion-segment-button value="Wrong" >
                       <ion-icon name="close" color="danger"></ion-icon>
                     </ion-segment-button>
                   </ion-segment>
@@ -74,7 +74,7 @@
       </ion-row>
     </ion-grid>
     <div class="ion-padding">
-      <ion-button expand="block" type="submit" color="success" disabled="true" (click)="onClick()">Calificar</ion-button>
+      <ion-button expand="block" type="submit" color="success"  (click)="onClick()">Calificar</ion-button>
     </div>
   </ion-content>
   

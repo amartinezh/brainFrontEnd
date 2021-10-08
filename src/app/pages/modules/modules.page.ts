@@ -16,6 +16,7 @@ export class ModulesPage implements OnInit {
 
   ngOnInit() {
     this.exercises = this.dataService.getExercises();
+    console.log(this.exercises);
   }
 
 }

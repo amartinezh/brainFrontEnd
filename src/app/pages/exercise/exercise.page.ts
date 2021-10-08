@@ -31,10 +31,12 @@ export class ExercisePage implements OnInit {
     
   }
 
-  segmentChanged(ev: any) {
+  segmentChanged(ev: any, i) {
     console.log('Segment changed', ev);
     console.log(ev.detail.value);
-    this.results.push(ev.detail.value);
+    console.log('Index'+i);
+    //this.results.push(ev.detail.value);
+    this.results.splice(i, 1, ev.detail.value);
   }
 
   async getExercises() {
@@ -51,8 +53,12 @@ export class ExercisePage implements OnInit {
     console.log("El adulto ha sido cargado correctamente: ", this.aSession);
   }
 
-  onClick(){
+  async onClick(){
     console.log(this.results);
+    await this.storage.set('WorkSessionResults', this.results);
+    const session = await this.storage.get('workSession');
+
+    await this.storage.set('workSession',{'id':session.id,'exercises':session.exercises,'adult':session.adult, 'user':session.user ,'date':session.date, 'results':this.results});
     this.router.navigateByUrl('/session-results');
   }
 
