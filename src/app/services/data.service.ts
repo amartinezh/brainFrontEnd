@@ -17,11 +17,11 @@ export class DataService {
   // }
 
   getMenuItems(){
-    return this.http.get<MenuItem[]>('./assets/data/menu.json');
+    return this.http.get<MenuItem[]>('mnemosyne/assets/data/menu.json');
   }
 
   getExercises(){
-    return this.http.get<Exercise[]>('./assets/data/exercises.json');
+    return this.http.get<Exercise[]>('mnemosyne/assets/data/exercises.json');
   }
 
   getAdults(){
