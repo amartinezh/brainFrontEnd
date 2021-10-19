@@ -28,7 +28,6 @@ export class CreateAdultPage implements OnInit {
       this.dataService.addAdultStorage(this.adult);
       this.presentToast("Aduto Añadido.","success");
     }
-
   }
 
   async onAdultSignup(form: NgForm) {

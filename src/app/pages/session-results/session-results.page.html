@@ -50,7 +50,7 @@
 
             <ion-item detail="false">
               <ion-label position="floating">Ingrese aqui las observaciones pertinentes.</ion-label>
-              <ion-textarea></ion-textarea>
+              <ion-textarea [(ngModel)]="session.observations" name="observations"></ion-textarea>
             </ion-item>
           </ion-list>
         </ion-card-content>
@@ -58,6 +58,6 @@
     </div>
   </ion-grid>
   <div class="ion-padding">
-    <ion-button expand="block" type="submit" color="success"  (click)="onClick()">Guardar</ion-button>
+    <ion-button expand="block" type="submit" color="success"  (click)="onSignup()">Guardar</ion-button>
   </div>
 </ion-content>
