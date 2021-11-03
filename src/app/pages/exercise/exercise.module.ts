@@ -8,6 +8,7 @@ import { ExercisePageRoutingModule } from './exercise-routing.module';
 
 import { ExercisePage } from './exercise.page';
 import { ComponentsModule } from '../../components/components.module';
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     ExercisePageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    DragDropModule
   ],
   declarations: [ExercisePage]
 })

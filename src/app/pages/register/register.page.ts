@@ -52,7 +52,7 @@ export class RegisterPage implements OnInit {
     const toast = await this.toastController.create({
       message: msg,
       color: clr,
-      duration: 2000
+      duration: 3000
     });
     toast.present();
   }

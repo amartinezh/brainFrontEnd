@@ -81,6 +81,160 @@
       "id": "9"
     },
     {
+      "exerciseNumber": "Ejercicio 2.4",
+      "icon": "./assets/img/brain2.png",
+      "title": "Observación y detección de contrastes entre imágenes en formas y colores.",
+      "description": "El adulto debe mencionar en voz alta las diferencias entre las distintas figuras que se muestran a continuación.",
+      "content":"",
+      "module": "2",
+      "id": "10",
+      "media": ["./assets/img/exe/figures (1).jpg","./assets/img/exe/figures (2).jpg","./assets/img/exe/figures (3).jpg","./assets/img/exe/figures (4).jpg","./assets/img/exe/figures (5).jpg","./assets/img/exe/figures (6).jpg"]
+    },
+    {
+      "exerciseNumber": "Ejercicio 2.5",
+      "icon": "./assets/img/brain2.png",
+      "title": "Observación y detección de contrastes entre imágenes en colores e indumentos",
+      "description": "El adulto debe mencionar en voz alta las diferencias entre las distintas figuras que se muestran a continuación.",
+      "content":"",
+      "module": "2",
+      "id": "11",
+      "media": ["./assets/img/exe/clothes (1).jpg","./assets/img/exe/clothes (2).jpg","./assets/img/exe/clothes (3).jpg","./assets/img/exe/clothes (4).jpg","./assets/img/exe/clothes (5).jpg","./assets/img/exe/clothes (6).jpg"]
+    },
+    
+    {
+      "exerciseNumber": "Ejercicio 2.6",
+      "icon": "./assets/img/brain2.png",
+      "title": "Recuerde las películas.",
+      "description": "De las películas mencionadas anteriormente por el adulto mayos, identifique cuál es su favorita.",
+      "content":"",
+      "module": "2",
+      "id": "12"
+    },
+    {
+      "exerciseNumber": "Ejercicio 3.1",
+      "icon": "./assets/img/brain2.png",
+      "title": "Discriminación auditiva de estímulos lingüísticos.",
+      "description": "El adulto debe escuchar el siguiente sonido y describir lo que es.",
+      "content":"",
+      "module": "2",
+      "id": "13",
+      "media": ["./assets/audio/FAUNA/sonido de gatos.mp3","./assets/audio/FAUNA/Sonidos de Cerdos.mp3","./assets/audio/FAUNA/sonido de vacas.mp3","./assets/audio/FAUNA/sonido de pollos.mp3","./assets/audio/FAUNA/sonido de perros.mp3","./assets/audio/NATURALEZA/Sonido de agua.mp3","./assets/audio/NATURALEZA/sonido de truenos.mp3","./assets/audio/NATURALEZA/sonido de la selva.mp3","./assets/audio/NATURALEZA/sonido de lluvia.mp3","./assets/audio/NATURALEZA/sonido de viento.mp3"],
+      "mediaType":"Audio"
+    },
+    {
+      "exerciseNumber": "Ejercicio 3.2",
+      "icon": "./assets/img/brain2.png",
+      "title": "Discriminación auditiva: Piezas musicales con ritmos.",
+      "description": "El adulto debe escuchar el siguiente sonido y describir lo que es.",
+      "content":"",
+      "module": "2",
+      "id": "14",
+      "media": ["./assets/audio/INSTRUMENTOS MUSICALES/sonido de guitarra.mp3","./assets/audio/INSTRUMENTOS MUSICALES/sonido de piano.mp3","./assets/audio/INSTRUMENTOS MUSICALES/sonido flauta.mp3","./assets/audio/INSTRUMENTOS MUSICALES/sonido maracas.mp3","./assets/audio/INSTRUMENTOS MUSICALES/sonido tambor.mp3"],
+      "mediaType":"Audio"
+    },
+    {
+      "exerciseNumber": "Ejercicio 3.3",
+      "icon": "./assets/img/brain2.png",
+      "title": "Discriminación olfativa y gustativa.",
+      "description": "El adulto mayor debe cerrar los ojos y olfatear y/o saborear los elementos proporcionados por el cuidador.",
+      "content":"Advertencia: Para este ejercicio es necesario contar con elementos que puedan ser olfateados o sabereados tales como menta, dulces, frutas, especias, etc. En caso de no contar con estos elementos, no califique este ejercicio.",
+      "module": "2",
+      "id": "15"
+    },
+    {
+      "exerciseNumber": "Ejercicio 3.4",
+      "icon": "./assets/img/brain2.png",
+      "title": "Discriminación gnoseológica por medio del tacto.",
+      "description": "El adulto mayor debe cerrar los ojos y por medio del tacto, identificar y mencionar los elementos proporcionados por el cuidador.",
+      "content":"Advertencia: Para este ejercicio es necesario contar con elementos que puedan ser palpados tales como frutas, pelotas, madera, lijas, algodón, etc. En caso de no contar con estos elementos, no califique este ejercicio.",
+      "module": "2",
+      "id": "16"
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.1",
+      "icon": "./assets/img/brain2.png",
+      "title": "Identificación de errores en un texto.",
+      "description": "El adulto mayor debe leer el texto a continuación y determinar cuáles son los errores en él.",
+      "content":"",
+      "module": "2",
+      "id": "17",
+      "media": ["En la mesa estaban sentadas todas las persianas, la comida estaba hecha de pasta y tomate, para brindar utilizaron el vino que estaba servido en las coperas; y al finalizar destaparon los regalos que los invitadinos habían traído. El motivo de la celebración era el cumpleaños de la abuela. Eran muchos los regalos, fueron puestos sobre el mantel que servía para cuberir la mesa. La abuela estaba feliz y para agradecer leyó un discurse que ella misma había escrito."],
+      "mediaType":"Text"
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.2",
+      "icon": "./assets/img/brain2.png",
+      "title": "Diferencias entre textos.",
+      "description": "El adulto mayor debe leer los textos a continuación y determinar cuáles son las diferencias entre ambos textos.",
+      "content":"",
+      "module": "2",
+      "id": "18",
+      "media": ["Ayer salí de casa, tomé el auto y fui al supermercado, al ingresar al sitio busqué una canasta para colocar lo que debía comprar. Compré pan, huevos, leche, sal y tomate. Me acerqué a la caja y pagué, salí, fui por el carro al parqueadero y regresé a casa.", "Ayer salí de casa, tomé el auto y fui a la tienda de ropa, ingresé al sitio y busqué la zona donde podía encontrar lo que buscaba. Compré pantalones, camisas y un par de medias. Me acerqué a la caja y pagué, salí del sitio y fui a casa de mi madre a mostrarle lo que había comprado."],
+      "mediaType":"Text"
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.5",
+      "icon": "./assets/img/brain2.png",
+      "title": "Palabras ocultas.",
+      "description": "Encuentra las palabras ocultas en la siguiente tabla basándote en los animales que están abajo.",
+      "content":"",
+      "module": "2",
+      "id": "21",
+      "media":["./assets/img/exe/PalabrasOcultas.png"]
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.7",
+      "icon": "./assets/img/brain2.png",
+      "title": "Completamiento de frases.",
+      "description": "El adulto mayor, debe completar las frases que se le leerán a continuación.",
+      "content":"-Las manzanas crecen en los... -Los caballos son... -La sangre es de color... -Colombia es un... -Diciembre es... -La madre de mi madre es mi... -Después de mayo está... -El otoño y la primavera son... -Antes del miércoles está...",
+      "module": "2",
+      "id": "23"
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.8",
+      "icon": "./assets/img/brain2.png",
+      "title": "Semejanza entre dos imágenes.",
+      "description": "El adulto debe mirar las dos imagenes y mencionar las semejanzas entre ambas imágenes.",
+      "content":"",
+      "module": "2",
+      "id": "24",
+      "media":["./assets/img/exe/sim.png"]
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.9",
+      "icon": "./assets/img/brain2.png",
+      "title": "Recuento de signos.",
+      "description": "EL adulto mayor debe contar todos los símbolos iguales al que se muestra al inicio de la imagen.",
+      "content":"",
+      "module": "2",
+      "id": "25",
+      "media":["./assets/img/exe/Bugs.png"]
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.10",
+      "icon": "./assets/img/brain2.png",
+      "title": "Conversaciones donde se escuchan números y nombres.",
+      "description": "El adulto debe escuchar el audio a continuación (máximo 3 veces) e indicar los nombres y los numeros que allí se mencionan.",
+      "content":"",
+      "module": "2",
+      "id": "26",
+      "media": ["./assets/audio/NOMBRES Y NUMEROS/Nombres y numeros 1.mp3","./assets/audio/NOMBRES Y NUMEROS/Nombres y numeros 2.mp3","./assets/audio/NOMBRES Y NUMEROS/Nombres y numeros 3.mp3"],
+      "mediaType":"Audio"
+    },
+    {
+      "exerciseNumber": "Ejercicio 4.11",
+      "icon": "./assets/img/brain2.png",
+      "title": "Conversaciones donde se escuchan colores y objetos.",
+      "description": "El adulto debe escuchar el audio a continuación (máximo 3 veces) e indicar los colores y los objetos que allí se mencionan.",
+      "content":"",
+      "module": "2",
+      "id": "27",
+      "media": ["./assets/audio/COLORES-DE-OBJETOS/Colores-de-objetos 1.mp3","./assets/audio/COLORES-DE-OBJETOS/Colores-de-objetos 2.mp3","./assets/audio/COLORES-DE-OBJETOS/Colores-de-objetos 3.mp3"],
+      "mediaType":"Audio"
+    },
+
+    {
       "exerciseNumber": "Ejercicio Multimedia 1",
       "icon": "./assets/img/brain.png",
       "title": "Qué recuerdos le trae la siguiente imagen.",
@@ -108,6 +262,61 @@
       "content":"",
       "module": "3",
       "id": "33",
-      "media": ["./assets/img/exe/diff2.jpg","/assets/img/exe/diff3.jpg"]
+      "media": ["./assets/img/exe/diff2.jpg","./assets/img/exe/diff3.jpg"]
+    },
+    {
+      "exerciseNumber": "Ejercicio Multimedia 4",
+      "icon": "./assets/img/brain3.png",
+      "title": "Ordene de mayor a menor.",
+      "description": "",
+      "content":"",
+      "module": "3",
+      "id": "34",
+      "media": ["./assets/img/dragDrop/3.png","./assets/img/dragDrop/1.png","./assets/img/dragDrop/5.png","./assets/img/dragDrop/4.png","./assets/img/dragDrop/2.png"],
+      "mediaType":"DragDrop"
+    },
+    {
+      "exerciseNumber": "Ejercicio Multimedia 5",
+      "icon": "./assets/img/brain3.png",
+      "title": "Ordene del más pequeño al más grande.",
+      "description": "",
+      "content":"",
+      "module": "3",
+      "id": "35",
+      "media": ["./assets/img/dragDrop/cow.png","./assets/img/dragDrop/crab.png","./assets/img/dragDrop/dog.png","./assets/img/dragDrop/elephant.png"],
+      "mediaType":"DragDrop"
+    },
+    {
+      "exerciseNumber": "Ejercicio Multimedia 6",
+      "icon": "./assets/img/brain3.png",
+      "title": "Ordene la suma.",
+      "description": "",
+      "content":"",
+      "module": "3",
+      "id": "36",
+      "media": ["./assets/img/dragDrop/2.png","./assets/img/dragDrop/igual.png","./assets/img/dragDrop/mas.png","./assets/img/dragDrop/4.png","./assets/img/dragDrop/2.png"],
+      "mediaType":"DragDrop"
+    },
+    {
+      "exerciseNumber": "Ejercicio Multimedia 7",
+      "icon": "./assets/img/brain3.png",
+      "title": "Ordene la resta.",
+      "description": "",
+      "content":"",
+      "module": "3",
+      "id": "37",
+      "media": ["./assets/img/dragDrop/1.png","./assets/img/dragDrop/igual.png","./assets/img/dragDrop/menos.png","./assets/img/dragDrop/4.png","./assets/img/dragDrop/5.png"],
+      "mediaType":"DragDrop"
+    },
+    {
+      "exerciseNumber": "Ejercicio Multimedia 8",
+      "icon": "./assets/img/brain3.png",
+      "title": "Ordene el nombre del animal.",
+      "description": "",
+      "content":"",
+      "module": "3",
+      "id": "38",
+      "media": ["dri","lo","co","co"],
+      "mediaType":"DragDropWords"
     }
 ]

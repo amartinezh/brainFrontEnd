@@ -6,5 +6,6 @@ export interface Exercise {
     content: string;
     id: string;
     media: string;
+    mediaType: string;
     module: string;
 }

@@ -24,7 +24,7 @@ export class UserService extends BaseServiceService{
     try {
       return this.consumeAPI('/user2/insert', { id: data.id, name: data.name, email: data.email, apppassword: data.password, cellphone: data.cellphone, birth_date: data.birth_date });
     } catch (e) {
-      console.log(`An error has occurred inserting the adult: ${this.insertUser.name} ${e}`)
+      console.log(`An error has occurred inserting the user: ${this.insertUser.name} ${e}`)
     }
   }
 
