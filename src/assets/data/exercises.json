@@ -307,16 +307,5 @@
       "id": "37",
       "media": ["./assets/img/dragDrop/1.png","./assets/img/dragDrop/igual.png","./assets/img/dragDrop/menos.png","./assets/img/dragDrop/4.png","./assets/img/dragDrop/5.png"],
       "mediaType":"DragDrop"
-    },
-    {
-      "exerciseNumber": "Ejercicio Multimedia 8",
-      "icon": "./assets/img/brain3.png",
-      "title": "Ordene el nombre del animal.",
-      "description": "",
-      "content":"",
-      "module": "3",
-      "id": "38",
-      "media": ["dri","lo","co","co"],
-      "mediaType":"DragDropWords"
     }
 ]
