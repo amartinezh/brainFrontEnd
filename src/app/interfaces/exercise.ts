@@ -8,4 +8,5 @@ export interface Exercise {
     mediaType: string;
     module: string;
     observation: string;
+    mediaObservations: string;
 }

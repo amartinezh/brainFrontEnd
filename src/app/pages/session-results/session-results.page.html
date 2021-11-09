@@ -17,8 +17,8 @@
             {{e.exerciseNumber}}
             <p>{{e.title}}</p>
           </ion-label>
-          <p *ngIf="results[i] == 'Correct'"><ion-text color="success">Correcto.</ion-text></p>
-          <p *ngIf="results[i] == 'Wrong'"><ion-text color="danger">Erroneo.</ion-text></p>
+          <p *ngIf="results[i] == '1'"><ion-text color="success">Correcto.</ion-text></p>
+          <p *ngIf="results[i] == '0'"><ion-text color="danger">Erroneo.</ion-text></p>
         </ion-item>
       </ion-list>
       <h2 class="ion-padding-top ion-padding-start">Personas.</h2>

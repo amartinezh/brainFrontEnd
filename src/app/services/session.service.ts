@@ -21,10 +21,25 @@ export class SessionService extends BaseServiceService{
     }
   }
 
-
-  getSessionById(data: WorkSession) {
+  insertSessionExercise(data: any){
     try {
-      return this.consumeAPI('/session/getById', { id: data.id });
+      return this.consumeAPI('/session/insertExerciseSession', { id_session: data.id_session, id_exercise: data.id_exercise, date: data.date, observations: data.observations });
+    } catch (e) {
+      console.log(`An error has occurred validating the user: ${this.insertSession.name} ${e}`)
+    }
+  }
+
+  getSessionId(data: Session) {
+    try {
+      return this.consumeAPI('/session/getId', {id_user: data.id_user, id_adult: data.id_adult, date: data.date, observations: data.observations});
+    } catch (e) {
+      console.log(`An error has occurred validating the user: ${this.getSessionById.name} ${e}`)
+    }
+  }
+
+  getSessionById(data: number) {
+    try {
+      return this.consumeAPI('/session/getById', { id: data });
     } catch (e) {
       console.log(`An error has occurred validating the user: ${this.getSessionById.name} ${e}`)
     }
@@ -38,7 +53,7 @@ export class SessionService extends BaseServiceService{
     }
   }
 
-  updateSession(data: WorkSession){
+  updateSession(data: Session){
     try {
       return this.consumeAPI('/session/update', {})
     } catch(e){
@@ -46,9 +61,9 @@ export class SessionService extends BaseServiceService{
     }
   }
 
-  deleteSession(data: WorkSession){
+  deleteSession(data: number){
     try {
-      return this.consumeAPI('/session/delete', {id: data.id})
+      return this.consumeAPI('/session/delete', {id: data})
     } catch(e){
       console.log(`An error has occurred deleting the adult: ${this.deleteSession.name} ${e}`)
     }
