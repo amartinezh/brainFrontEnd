@@ -7,4 +7,5 @@ export interface Exercise {
     media: string;
     mediaType: string;
     module: string;
+    observation: string;
 }

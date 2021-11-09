@@ -15,9 +15,8 @@ export interface WorkSession {
 export interface Session{
     id_user: string;
     id_adult: string;
-    correct: number;
-    wrong: number;
     date: string;
     observations: string;
-    exercises: string;
+    exercises: Exercise[];
+    exerciseObservations: string;
 }

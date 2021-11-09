@@ -28,42 +28,26 @@ export class SessionResultsPage implements OnInit {
   results: string[];
   loaded: boolean;
   session: Session;
+  exerciseObservations: string;
 
 
   constructor(private adultService: AdultService, private userService: UserService, private userData: UserData,private toastController: ToastController, public router: Router, private storage: Storage, private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.session={id_user:"", id_adult:"", correct:0, wrong:0, date:"", observations:"", exercises:""};
+    this.session={id_user:"", id_adult:"", date:"", observations:"", exercises:[], exerciseObservations:""};
   }
 
   async ngAfterViewInit() {
     
     
     await this.getData();
-    let correct = 0, wrong = 0, exercises = "";
-
-    for (let i = 0; i < this.results.length; i++) {
-      if(this.results[i]=="Correct"){
-        correct++;
-      } else {
-        wrong++;
-      }
-    }
-
-    for (let i = 0; i < this.exercises.length; i++) {
-      if(i<this.exercises.length-1){
-        exercises=exercises+this.exercises[i].exerciseNumber.slice(10)+", ";
-      } else {
-        exercises=exercises+this.exercises[i].exerciseNumber.slice(10);
-      }
-    }
-    
+    let exercises = "";
+  
     this.session.id_user=this.user.id;
     this.session.id_adult=this.adult.id;
-    this.session.correct=correct;
-    this.session.wrong=wrong;
     this.session.date=""+this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDate();
-    this.session.exercises=exercises;
+    this.session.exercises=this.exercises;
+    this.session.exerciseObservations=this.exerciseObservations;
 
   }
 
@@ -75,8 +59,9 @@ export class SessionResultsPage implements OnInit {
     this.adult = auxiliar.adult;
     this.date = auxiliar.date;
     this.exercises = auxiliar.exercises;
-    this.sessionId = auxiliar.id;
+    //this.sessionId = auxiliar.id;
     this.results = auxiliar.results;
+    this.exerciseObservations = auxiliar.exerciseObservations;
 
     console.log("ejercicios: "+this.exercises);
     console.log("resultados: "+this.results);

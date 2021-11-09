@@ -49,32 +49,37 @@
   
                 <ion-item detail="false" *ngIf="e.mediaType === 'Questions'">
                   <ion-list lines="inset">
-                    <ion-item *ngFor="let media of e.media" detail="false">
-                      <ion-row>
-                        <ion-col size="12">
-                          {{media}}
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                        <ion-col size="12">
-                          <ion-textarea rows="1" style="padding-top: 30px;"></ion-textarea>
-                        </ion-col>
-                      </ion-row>
-                    </ion-item>
-                    <ion-item detail="false">
-                      <ion-label position="floating">Respuestas</ion-label>
-                      <ion-textarea rows="4"></ion-textarea>
+                    <ion-item *ngFor="let media of e.media; let j = index" detail="false">
+                      <ion-grid fixed>
+                        
+                        <ion-row>
+                          <ion-col size="12" style="margin-top: 5px;">
+                            {{media}}
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col size="12" style="margin-bottom: 5px;">
+                            <ion-label position="floating">Respuestas</ion-label>
+                            <ion-textarea rows="1" [(ngModel)]="mediaObservations[j]" placeholder="Escriba aqui sus respuestas."></ion-textarea>
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
                     </ion-item>
                   </ion-list>
                   
                 </ion-item>
 
                 <ion-item detail="false" *ngIf="e.media && (e.mediaType == 'img' || !e.mediaType)">
-                  <ion-slides pager="true" >
-                    <ion-slide *ngFor="let media of e.media">
-                      <ion-img [src]="media"></ion-img>
-                    </ion-slide>
-                  </ion-slides>
+                  <ion-list>
+                    <ion-item>
+                      <ion-slides pager="true" >
+                        <ion-slide *ngFor="let media of e.media">
+                          <ion-img [src]="media"></ion-img>
+                        </ion-slide>
+                      </ion-slides>
+                    </ion-item>
+                    
+                  </ion-list>
                 </ion-item>
 
                 <ion-item detail="false" *ngIf="e.mediaType === 'DragDrop'">
@@ -124,18 +129,23 @@
                     </ion-item>
                   </ion-list>
                 </ion-item>
+
+                <ion-item detail="false">
+                  <ion-label position="floating">Observaciones</ion-label>
+                  <ion-textarea rows="4" [(ngModel)]="exerciseObservations[i]" name="exerciseObservations"></ion-textarea>
+                </ion-item>
   
                 <ion-item mode="ios">
                   <ion-segment (ionChange)="segmentChanged($event, i)" value="None">
-                    <ion-segment-button value="Correct">
+                    <ion-segment-button value="1">
                       <ion-icon name="checkmark" color="success"></ion-icon>
                     </ion-segment-button>
-                    <ion-segment-button value="Wrong" >
+                    <ion-segment-button value="0" >
                       <ion-icon name="close" color="danger"></ion-icon>
                     </ion-segment-button>
                   </ion-segment>
                 </ion-item>
-  
+                
               </ion-list>
             </ion-card-content>
           </ion-card>

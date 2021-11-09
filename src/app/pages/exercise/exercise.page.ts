@@ -25,6 +25,9 @@ export class ExercisePage implements OnInit {
   player: Howl = null;
   isPlaying = false;
   progress = 0;
+  mediaObservations: string[]=[];
+  exerciseObservations: string[]=[];
+
 
   @ViewChild('range', { static: false }) range: IonRange;
 
@@ -44,7 +47,10 @@ export class ExercisePage implements OnInit {
     console.log('Segment changed', ev);
     console.log(ev.detail.value);
     console.log('Index'+i);
+    console.log(this.mediaObservations);
+    console.log(this.exerciseObservations);
     //this.results.push(ev.detail.value);
+    //value=1 correcto; value=0 erroneo
     this.results.splice(i, 1, ev.detail.value);
   }
 
@@ -64,10 +70,11 @@ export class ExercisePage implements OnInit {
 
   async onClick(){
     console.log(this.results);
+    await this.storage.set('ExerciseObservations', this.exerciseObservations);
     await this.storage.set('WorkSessionResults', this.results);
     const session = await this.storage.get('workSession');
 
-    await this.storage.set('workSession',{'id':session.id,'exercises':session.exercises,'adult':session.adult, 'user':session.user ,'date':session.date, 'results':this.results});
+    await this.storage.set('workSession',{'id':session.id,'exercises':session.exercises,'adult':session.adult, 'user':session.user ,'date':session.date, 'results':this.results, 'exerciseObservations':this.exerciseObservations});
     this.router.navigateByUrl('/session-results');
   }
 
