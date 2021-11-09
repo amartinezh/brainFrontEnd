@@ -97,7 +97,7 @@ export class SessionResultsPage implements OnInit {
     let err: boolean = false;
     try {
       await this.sessionService.insertSession(this.session);
-      this.presentToast("La sesion ha sido agregada exitosamente.", "success");
+      this.presentToast("La sesion ha sido guardada exitosamente.", "success");
     } catch (error) {
       console.log('Al parecer hubo un error al insertar la sesion en la Base de Datos.');
       console.log(error);

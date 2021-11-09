@@ -15,7 +15,7 @@ export class SessionService extends BaseServiceService{
 
   insertSession(data: Session){
     try {
-      return this.consumeAPI('/session/insert', { id_user: data.id_user, id_adult: data.id_adult, correct: data.correct, wrong: data.wrong, date: data.date, observations: data.observations, exercises: data.exercises });
+      return this.consumeAPI('/session/insert', { id_user: data.id_user, id_adult: data.id_adult, date: data.date, observations: data.observations });
     } catch (e) {
       console.log(`An error has occurred validating the user: ${this.insertSession.name} ${e}`)
     }

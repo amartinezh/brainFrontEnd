@@ -3,7 +3,6 @@ export interface Exercise {
     icon: string;
     title: string;
     description: string;
-    content: string;
     id: string;
     media: string;
     mediaType: string;
