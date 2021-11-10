@@ -100,6 +100,16 @@ export class SessionResultsPage implements OnInit {
       this.sessionExercise.correct = this.results;
       this.sessionExercise.observations = this.exerciseObservations;
 
+      this.exerciseMedia.id_session = this.sessionId['id'];
+      this.exerciseMedia.id_exercise = this.exercisesId;
+      
+      // for (let i = 0; i < this.exercises.length; i++) {
+      //   this.mediaObservations[i].forEach(element => {
+          
+      //   });
+        
+      // }
+
       console.log(this.sessionExercise);
       // for(let i in this.sessionId){
       //   console.log(this.sessionId[i],i);
