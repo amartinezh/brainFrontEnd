@@ -12,6 +12,8 @@ import { ToastController } from '@ionic/angular';
 import { SessionService } from '../../services/session.service';
 import { Session } from '../../interfaces/workSession';
 import { SessionExercise } from '../../interfaces/sessionExercise';
+import { ExerciseMedia } from 'src/app/interfaces/exerciseMedia';
+
 
 @Component({
   selector: 'app-session-results',
@@ -32,7 +34,8 @@ export class SessionResultsPage implements OnInit {
   exerciseObservations: string;
   exercisesId: any[]=[];
   sessionExercise: SessionExercise;
-
+  mediaObservations: string;
+  exerciseMedia: ExerciseMedia;
 
   constructor(private adultService: AdultService, private userService: UserService, private userData: UserData,private toastController: ToastController, public router: Router, private storage: Storage, private sessionService: SessionService) { }
 
@@ -42,10 +45,10 @@ export class SessionResultsPage implements OnInit {
   }
 
   async ngAfterViewInit() {
-    
-    
+
+
     await this.getData();
-  
+
     this.session.id_user=this.user.id;
     this.session.id_adult=this.adult.id;
     this.session.date=""+this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDate();
@@ -56,7 +59,7 @@ export class SessionResultsPage implements OnInit {
 
   async getData(){
     const auxiliar = await this.storage.get('workSession');
-    console.log(auxiliar);
+    //console.log(auxiliar);
 
     this.user = auxiliar.user;
     this.adult = auxiliar.adult;
@@ -66,9 +69,10 @@ export class SessionResultsPage implements OnInit {
     this.results = auxiliar.results;
     this.exerciseObservations = auxiliar.exerciseObservations;
 
-    console.log("ejercicios: "+this.exercises);
-    console.log("resultados: "+this.results);
-    console.log("Id Usuario: "+this.user.id);
+    const aux = await this.storage.get('MediaObservations');
+    this.mediaObservations = aux;
+
+    console.log("Media Observations",this.mediaObservations);
 
     this.loaded = true;
 
@@ -86,22 +90,24 @@ export class SessionResultsPage implements OnInit {
     try {
       await this.sessionService.insertSession(this.session);
       this.sessionId = await this.sessionService.getSessionId(this.session);
-      
+
       for (let i = 0; i < this.exercises.length; i++) {
         this.exercisesId[i] = this.exercises[i].id;
       }
 
-      this.sessionExercise.id_session = this.sessionId.id;
+      this.sessionExercise.id_session = this.sessionId['id'];
       this.sessionExercise.id_exercise = this.exercisesId;
       this.sessionExercise.correct = this.results;
       this.sessionExercise.observations = this.exerciseObservations;
 
-
       console.log(this.sessionExercise);
+      // for(let i in this.sessionId){
+      //   console.log(this.sessionId[i],i);
+      // }
 
-      //await this.sessionService.insertSessionExercise({id_session: this.sessionId.id, id_exercise: this.exercisesId , observations: this.exerciseObservations, correct: this.results});
+      await this.sessionService.insertSessionExercise(this.sessionExercise);
       this.presentToast("La sesion ha sido guardada exitosamente.", "success");
-    
+
     } catch (error) {
       console.log('Al parecer hubo un error al insertar la sesion en la Base de Datos.');
       console.log(error);

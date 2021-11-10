@@ -25,7 +25,7 @@ export class ExercisePage implements OnInit {
   player: Howl = null;
   isPlaying = false;
   progress = 0;
-  mediaObservations: string[]=[];
+  mediaObservations: string[][]=[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
   exerciseObservations: string[]=[];
 
 
@@ -70,9 +70,11 @@ export class ExercisePage implements OnInit {
 
   async onClick(){
     console.log(this.results);
+    await this.storage.set('MediaObservations',this.mediaObservations);
     await this.storage.set('ExerciseObservations', this.exerciseObservations);
     await this.storage.set('WorkSessionResults', this.results);
     const session = await this.storage.get('workSession');
+
 
     await this.storage.set('workSession',{'id':session.id,'exercises':session.exercises,'adult':session.adult, 'user':session.user ,'date':session.date, 'results':this.results, 'exerciseObservations':this.exerciseObservations});
     this.router.navigateByUrl('/session-results');

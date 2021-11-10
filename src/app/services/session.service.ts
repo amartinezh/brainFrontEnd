@@ -3,6 +3,8 @@ import { BaseServiceService } from '../services/base-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Adult } from '../interfaces/adult';
 import { WorkSession, Session } from '../interfaces/workSession';
+import { SessionExercise } from '../interfaces/sessionExercise';
+import { ExerciseMedia } from '../interfaces/exerciseMedia';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +19,23 @@ export class SessionService extends BaseServiceService{
     try {
       return this.consumeAPI('/session/insert', { id_user: data.id_user, id_adult: data.id_adult, date: data.date, observations: data.observations });
     } catch (e) {
-      console.log(`An error has occurred validating the user: ${this.insertSession.name} ${e}`)
+      console.log(`An error has occurred Inserting the session: ${this.insertSession.name} ${e}`)
     }
   }
 
-  insertSessionExercise(data: any){
+  insertSessionExercise(data: SessionExercise){
     try {
-      return this.consumeAPI('/session/insertExerciseSession', { id_session: data.id_session, id_exercise: data.id_exercise, date: data.date, observations: data.observations });
+      return this.consumeAPI('/session/insertExerciseSession', { id_session: data.id_session, id_exercise: data.id_exercise, correct: data.correct, observation: data.observations });
     } catch (e) {
-      console.log(`An error has occurred validating the user: ${this.insertSession.name} ${e}`)
+      console.log(`An error has occurred inserting the session exercise: ${this.insertSessionExercise.name} ${e}`)
+    }
+  }
+
+  insertExerciseMedia(data: ExerciseMedia){
+    try {
+      return this.consumeAPI('/session/insertMediaExercise', { id_session: data.id_session, id_exercise: data.id_exercise, id_media: data.id_media, observation: data.observation });
+    } catch (e) {
+      console.log(`An error has occurred validating the user: ${this.insertExerciseMedia.name} ${e}`)
     }
   }
 

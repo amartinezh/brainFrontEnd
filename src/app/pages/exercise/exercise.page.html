@@ -51,7 +51,6 @@
                   <ion-list lines="inset">
                     <ion-item *ngFor="let media of e.media; let j = index" detail="false">
                       <ion-grid fixed>
-                        
                         <ion-row>
                           <ion-col size="12" style="margin-top: 5px;">
                             {{media}}
@@ -60,7 +59,7 @@
                         <ion-row>
                           <ion-col size="12" style="margin-bottom: 5px;">
                             <ion-label position="floating">Respuestas</ion-label>
-                            <ion-textarea rows="1" [(ngModel)]="mediaObservations[j]" placeholder="Escriba aqui sus respuestas."></ion-textarea>
+                            <ion-textarea rows="1" [(ngModel)]="mediaObservations[i][j]" placeholder="Escriba aqui sus respuestas."></ion-textarea>
                           </ion-col>
                         </ion-row>
                       </ion-grid>
