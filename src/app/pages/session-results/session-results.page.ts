@@ -42,6 +42,7 @@ export class SessionResultsPage implements OnInit {
   ngOnInit() {
     this.session={id_user:"", id_adult:"", date:"", observations:"", exercises:[], exerciseObservations:""};
     this.sessionExercise={id_session:"", id_exercise:[], correct:[], observations:""};
+    this.exerciseMedia={id_session:"", id_media:"", id_exercise:[], observation:""};
   }
 
   async ngAfterViewInit() {
@@ -100,20 +101,25 @@ export class SessionResultsPage implements OnInit {
       this.sessionExercise.correct = this.results;
       this.sessionExercise.observations = this.exerciseObservations;
 
-      this.exerciseMedia.id_session = this.sessionId['id'];
-      this.exerciseMedia.id_exercise = this.exercisesId;
+      this.exerciseMedia.id_session = this.sessionExercise.id_session;
       
-      // for (let i = 0; i < this.exercises.length; i++) {
-      //   this.mediaObservations[i].forEach(element => {
+      
+      let cont = 0;
+      for (let i = 0; i < this.exercises.length; i++) {
+        for(let j = 0 ; j<this.mediaObservations[i].length; j++){
           
-      //   });
+          this.exerciseMedia.id_exercise = this.exercisesId[i];
+          this.exerciseMedia.observation=this.mediaObservations[i][j];
+          this.exerciseMedia.id_media=cont.toString();
+
+          await this.sessionService.insertExerciseMedia(this.exerciseMedia);
+
+          cont++;
+        }
         
-      // }
+      }
 
       console.log(this.sessionExercise);
-      // for(let i in this.sessionId){
-      //   console.log(this.sessionId[i],i);
-      // }
 
       await this.sessionService.insertSessionExercise(this.sessionExercise);
       this.presentToast("La sesion ha sido guardada exitosamente.", "success");
@@ -122,7 +128,7 @@ export class SessionResultsPage implements OnInit {
       console.log('Al parecer hubo un error al insertar la sesion en la Base de Datos.');
       console.log(error);
     }
-    //this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/home');
 
   }
 
