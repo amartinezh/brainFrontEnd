@@ -16,11 +16,6 @@
         <p>{{exercise?.description}}</p>
 
         <hr>
-        <ion-item detail="false" *ngIf="exercise?.content">
-            <p>
-                {{exercise?.content}}
-            </p>
-        </ion-item>
         <ion-item detail="false" *ngIf="exercise?.media">
             <ion-slides pager="true">
                 <ion-slide *ngFor="let m of exercise?.media">
