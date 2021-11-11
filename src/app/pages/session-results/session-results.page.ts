@@ -127,6 +127,7 @@ export class SessionResultsPage implements OnInit {
     } catch (error) {
       console.log('Al parecer hubo un error al insertar la sesion en la Base de Datos.');
       console.log(error);
+      this.router.navigateByUrl('/home');
     }
     this.router.navigateByUrl('/home');
 
