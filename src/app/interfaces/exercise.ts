@@ -1,12 +1,12 @@
 export interface Exercise {
     exerciseNumber: string;
-    icon: string;
+    icon?: string;
     title: string;
     description: string;
     id: string;
-    media: string;
-    mediaType: string;
+    media?: string[];
+    mediaType?: string;
     module: string;
-    observation: string;
-    mediaObservations: string;
+    observation?: string;
+    mediaObservations?: string;
 }

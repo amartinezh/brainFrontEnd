@@ -163,7 +163,6 @@
       "icon": "./assets/img/brain2.png",
       "title": "Palabras ocultas.",
       "description": "Encuentra las palabras ocultas en la siguiente tabla basándote en los animales que están abajo.",
-      
       "module": "2",
       "id": "21",
       "media":["./assets/img/exe/PalabrasOcultas.png"]

@@ -31,6 +31,53 @@ export class CreateSessionPage implements OnInit {
   user: any;
   workSession: WorkSession;
   sessionId: number = 0;
+  exerValues: Exercise[] = [{  //machetazo
+    exerciseNumber: "Ejercicio 1.1",
+    icon: "./assets/img/brain2.png",
+    title: "Evocación de acontecimientos autobiográficos por el uso de palabras claves.",
+    description: "Con base en las preguntas que se ofrecen, responda:",
+    module: "1",
+    id: "1",
+    media: ["¿Cuál es su fecha de nacimiento?","¿Cuál es el lugar donde pasó su infancia?","¿Quién era tu padre?","¿Quién era tu madre?","¿Cómo se llaman tus hermanos/as?","¿Cuál era la escuela a la que ibas?","¿Vivías en la ciudad o en el campo?","¿Cuál fue tu primer trabajo?","¿Cuál es la fecha de tu matrimonio?","¿En qué iglesia te casaste?","¿Quiénes son tus hijos?","¿Cuál es el viaje que más te ha gustado?","¿Cuál es el mayor logro de tu vida?","¿Cuántos nietos tienes?","¿Cómo se llaman tus nietos?","¿Cuál es tu lugar donde vives ahora?"],
+    mediaType:"Questions"
+  },{
+    exerciseNumber: "Ejercicio 1.3",
+    icon: "./assets/img/brain2.png",
+    title: "Identificación de fechas importantes en el ciclo vital del participante usando palabras claves.",
+    description: "Se le harán distintas preguntas relacionadas con su vida, por favor responda.",
+    module: "1",
+    id: "3",
+    media: ["-¿Cuál fue el momento más difícil que vivió con su familia?","-¿Cuál fue el momento más feliz que vivió con su familia?","-¿Cuándo se le cayó el primer diente a su hijo?","-¿Cuándo conoció a su pareja?","-¿Cuánto tiempo llevan o llevaban juntos?","-¿Cuándo fue su boda?","-¿Cuándo fue su primer trabajo?","-¿A qué edad consiguió su primer trabajo?","-¿Cuántos trabajos realizo en su vida?","-¿Cuándo fue su último trabajo?","-¿Dónde creció?","-¿Qué recuerda de su niñez?","-¿Qué le gustaba cuando era pequeño?","-¿Qué no le gustaba cuando era pequeño?","-¿Qué extraña de cuando era pequeño?","-¿Qué quería ser cuando fuera grande?","-¿Qué es lo que primero que recuerda del estudio?","-¿Qué recuerda hacer en los recreos?","-¿Qué recuerda de sus profesores?","-¿Qué recuerda de sus compañeros?","-¿Anteriormente qué le gustaba hacer en su tiempo libre?","-¿Qué aromas y sabores le recuerda la comida?","-¿Cuál fue el momento que más satisfacción trajo a su vida?","-¿Cuál fue el momento que más desgracia trajo a su vida?","-¿Qué metas tenia?","-¿Pudo cumplir alguna de sus metas?","-¿Qué le hubiera gustado cambiar en su vida?"],
+    mediaType:"Questions"
+  },{
+    exerciseNumber: "Ejercicio 1.6",
+    icon: "./assets/img/brain2.png",
+    title: "Recuerdo de los acontecimientos principales del año en curso.",
+    description: "Se deben hacer preguntas sobre sucesos ocurridos durante el año actual y el adulto debe responder correctamente, por ejemplo.",
+    module: "1",
+    id: "6",
+    media: ["¿Dónde celebraste el inicio del año actual?","¿Qué hiciste el día de tu cumpleaños?","¿Qué hiciste el día de la madre/padre?","¿Con quién estuviste el día del amor y la amistad?","¿Dónde celebraste la navidad?"],
+    mediaType:"Questions"
+  },
+  {
+    exerciseNumber: "Ejercicio 4.1",
+    icon: "./assets/img/brain2.png",
+    title: "Identificación de errores en un texto.",
+    description: "Lea el texto a continuación y escriba abajo los errores que vea en él.",
+    module: "2",
+    id: "17",
+    media: ["En la mesa estaban sentadas todas las persianas, la comida estaba hecha de pasta y tomate, para brindar utilizaron el vino que estaba servido en las coperas; y al finalizar destaparon los regalos que los invitadinos habían traído. El motivo de la celebración era el cumpleaños de la abuela. Eran muchos los regalos, fueron puestos sobre el mantel que servía para cuberir la mesa. La abuela estaba feliz y para agradecer leyó un discurse que ella misma había escrito."],
+    mediaType:"Text"
+  }
+  ,{
+    exerciseNumber: "Ejercicio 4.8",
+    icon: "./assets/img/brain2.png",
+    title: "Semejanza entre dos imágenes.",
+    description: "Escriba las semejanzas que vea entre los dos personajes.",
+    module: "2",
+    id: "24",
+    media:["./assets/img/exe/sim.png"]
+  }]; //machetazo
 
   constructor( private dataService: DataService, private storage: Storage, private alertCtrl: AlertController, private router: Router,  private userData: UserData, private adultData: AdultService, public datepipe: DatePipe) { }
 
@@ -39,7 +86,7 @@ export class CreateSessionPage implements OnInit {
     // this.adults = this.dataService.getAdults();
     this.loadAdults();
     this.loadAdultsDB();
-
+    console.log("ExerValues",this.exerValues);
     await this.storage.create();
 
   }
@@ -94,7 +141,7 @@ export class CreateSessionPage implements OnInit {
     this.user = await this.storage.get('user');
     console.log(this.user);
 
-    await this.storage.set('workSession', {'id':this.sessionId,'exercises':this.eValues,'adult':this.aValues, 'user':this.user ,'date':date});
+    await this.storage.set('workSession', {'id':this.sessionId,'exercises':this.exerValues,'adult':this.aValues, 'user':this.user ,'date':date});
     this.sessionId++;
     
     const auxiliar = await this.storage.get('workSession');
