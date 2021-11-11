@@ -1,6 +1,6 @@
 
 export const environment = {
   production: true,
-  port : 6789,
-  url: 'http://138.68.3.245'
+  port : 3000,
+  url: 'http://179.50.79.11'
 };
