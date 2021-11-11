@@ -29,7 +29,7 @@
             <ion-item slot="fixed">
                 <ion-label>Adulto</ion-label>
                 <ion-select [compareWith]="compareWith" placeholder="Select one" (ionChange)="adultValue($event)">
-                    <ion-select-option *ngFor="let a of adultsDB" [value]="a">{{a.name}}</ion-select-option>
+                    <ion-select-option *ngFor="let a of adultValues" [value]="a">{{a.name}}</ion-select-option>
                 </ion-select>
               </ion-item>
         </ion-list>

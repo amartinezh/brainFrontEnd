@@ -31,24 +31,31 @@ export class AdultsInfoPage implements OnInit {
     // });
 
     this.loadAdultsDB();
+    
+    
    }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.loadAdultsJSONtoStorage();
+    this.jsonAdults();
+    this.loadAdults();
+    
+    
   }
 
-  // async loadAdultsJSONtoStorage(){
-  //   this.userData.getAdults().subscribe((adults: Adult[])=>{
-  //     this.adultsJSON = adults;
-  //     console.log(this.adults);      
-  //   });
-  // }
+  async loadAdultsJSONtoStorage(){
+    this.userData.getAdults().subscribe((adults: Adult[])=>{
+      this.adultsJSON = adults;
+      console.log(this.adults);      
+    });
+  }
 
-  // loadAdults(){
-  //   this.userData.getAdultsStorage().then((adults)=>{
-  //     this.adults=adults;
-  //     console.log('Se cargaron correctamente todos ', this.adults);
-  //   });
-  // }
+  loadAdults(){
+    this.userData.getAdultsStorage().then((adults)=>{
+      this.adults=adults;
+      console.log('Se cargaron correctamente todos ', this.adults);
+    });
+  }
 
   async loadAdultsDB() {
     let err: boolean = false;
@@ -73,20 +80,20 @@ export class AdultsInfoPage implements OnInit {
 
   }
 
-  // jsonAdults(){
-  //   for(let a of this.adultsJSON){
-  //     this.userData.addAdultStorage(a);
-  //     console.log('adulto '+a.name+' añadido al storage');
-  //   }
-  //   console.log(this.adultsJSON);
-  // }
+  jsonAdults(){
+    for(let a of this.adultsJSON){
+      this.userData.addAdultStorage(a);
+      console.log('adulto '+a.name+' añadido al storage');
+    }
+    console.log(this.adultsJSON);
+  }
 
-  // async update(adult: Adult){
-  //   this.userData.updateAdultStorage(adult).then(()=>{
-  //     this.presentToast("Adulto Actualizado.","secondary");
-  //     this.loadAdults();
-  //   });
-  // }
+  async update(adult: Adult){
+    this.userData.updateAdultStorage(adult).then(()=>{
+      this.presentToast("Adulto Actualizado.","secondary");
+      this.loadAdults();
+    });
+  }
 
   async updateAdult(adult: Adult){
     let err: boolean = false;

@@ -31,6 +31,73 @@ export class CreateSessionPage implements OnInit {
   user: any;
   workSession: WorkSession;
   sessionId: number = 0;
+
+  adultValues: Adult[] = [{
+    id: "1",
+    name:"Adulto 1",
+    birth_date: "01/01/1950"       
+},{
+    id: "2",
+    name:"Adulto 2",
+    birth_date: "01/01/1950"       
+},{
+    id: "3",
+    name:"Adulto 3",
+    birth_date: "01/01/1950"       
+},{
+    id: "4",
+    name:"Adulto 4",
+    birth_date: "01/01/1950"       
+},{
+    id: "5",
+    name:"Adulto 5",
+    birth_date: "01/01/1950"       
+},{
+    id: "6",
+    name:"Adulto 6",
+    birth_date: "01/01/1950"       
+},{
+    id: "7",
+    name:"Adulto 7",
+    birth_date: "01/01/1950"       
+},{
+    id: "8",
+    name:"Adulto 8",
+    birth_date: "01/01/1950"       
+},{
+    id: "9",
+    name:"Adulto 9",
+    birth_date: "01/01/1950"       
+},{
+    id: "10",
+    name:"Adulto 10",
+    birth_date: "01/01/1950"       
+},{
+    id: "11",
+    name:"Adulto 11",
+    birth_date: "01/01/1950"       
+},{
+    id: "11",
+    name:"Adulto 11",
+    birth_date: "01/01/1950"       
+},{
+    id: "12",
+    name:"Adulto 12",
+    birth_date: "01/01/1950"       
+},{
+    id: "13",
+    name:"Adulto 13",
+    birth_date: "01/01/1950"       
+},{
+    id: "14",
+    name:"Adulto 14",
+    birth_date: "01/01/1950"       
+},{
+    id: "15",
+    name:"Adulto 15",
+    birth_date: "01/01/1950"       
+}];
+
   exerValues: Exercise[] = [{  //machetazo
     exerciseNumber: "Ejercicio 1.1",
     icon: "./assets/img/brain2.png",
@@ -85,7 +152,7 @@ export class CreateSessionPage implements OnInit {
     this.exercises = this.dataService.getExercises();
     // this.adults = this.dataService.getAdults();
     this.loadAdults();
-    this.loadAdultsDB();
+    // this.loadAdultsDB();
     console.log("ExerValues",this.exerValues);
     await this.storage.create();
 
@@ -99,28 +166,28 @@ export class CreateSessionPage implements OnInit {
   }
 
 
-  async loadAdultsDB() {
-    let err: boolean = false;
-    try {
-      let value = await this.adultData.getAdults();
-      console.log(value);
-      this.adultsDB = value;
-      console.log("Este es AdultsDB ", this.adultsDB);
-      if (value == null) {
-        err = true;
+  // async loadAdultsDB() {
+  //   let err: boolean = false;
+  //   try {
+  //     let value = await this.adultData.getAdults();
+  //     console.log(value);
+  //     this.adultsDB = value;
+  //     console.log("Este es AdultsDB ", this.adultsDB);
+  //     if (value == null) {
+  //       err = true;
 
-        console.log('No se encontraron adultos para cargar');
-      } else {
+  //       console.log('No se encontraron adultos para cargar');
+  //     } else {
 
-        console.log('Se cargaron correctamente');
+  //       console.log('Se cargaron correctamente');
         
-      }
-    } catch (error) {
-      console.log('Hubo un error trayendo los adultos: ');
-      console.log(error);
-    }
+  //     }
+  //   } catch (error) {
+  //     console.log('Hubo un error trayendo los adultos: ');
+  //     console.log(error);
+  //   }
 
-  }
+  // }
 
   compareWith(o1: Exercise, o2: Exercise | Exercise[]) {
     if (!o1 || !o2) {
@@ -147,7 +214,8 @@ export class CreateSessionPage implements OnInit {
     const auxiliar = await this.storage.get('workSession');
     console.log(auxiliar);
 
-    this.presentAlertConfirm();
+    //this.presentAlertConfirm();
+    this.router.navigateByUrl('/exercise');
   }
 
   exercisesValue(event: Event){
