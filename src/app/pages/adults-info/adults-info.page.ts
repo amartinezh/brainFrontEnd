@@ -32,13 +32,12 @@ export class AdultsInfoPage implements OnInit {
 
     this.loadAdultsDB();
     
-    
    }
 
   async ngOnInit() {
-    await this.loadAdultsJSONtoStorage();
-    this.jsonAdults();
-    this.loadAdults();
+    // await this.loadAdultsJSONtoStorage();
+    // this.jsonAdults();
+    // this.loadAdults();
     
     
   }
@@ -46,14 +45,14 @@ export class AdultsInfoPage implements OnInit {
   async loadAdultsJSONtoStorage(){
     this.userData.getAdults().subscribe((adults: Adult[])=>{
       this.adultsJSON = adults;
-      console.log(this.adults);      
+      // console.log(this.adults);      
     });
   }
 
   loadAdults(){
     this.userData.getAdultsStorage().then((adults)=>{
       this.adults=adults;
-      console.log('Se cargaron correctamente todos ', this.adults);
+      // console.log('Se cargaron correctamente todos ', this.adults);
     });
   }
 
@@ -61,9 +60,9 @@ export class AdultsInfoPage implements OnInit {
     let err: boolean = false;
     try {
       let value = await this.adultService.getAdults();
-      console.log(value);
+      // console.log(value);
       this.adultsDB = value;
-      console.log("Este es AdultsDB ", this.adultsDB);
+      // console.log("Se cargaron correctamente todos ", this.adultsDB);
       if (value == null) {
         err = true;
 
@@ -83,9 +82,9 @@ export class AdultsInfoPage implements OnInit {
   jsonAdults(){
     for(let a of this.adultsJSON){
       this.userData.addAdultStorage(a);
-      console.log('adulto '+a.name+' añadido al storage');
+      // console.log('adulto '+a.name+' añadido al storage');
     }
-    console.log(this.adultsJSON);
+    // console.log(this.adultsJSON);
   }
 
   async update(adult: Adult){

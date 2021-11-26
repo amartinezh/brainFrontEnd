@@ -23,8 +23,8 @@ export class CreateSessionPage implements OnInit {
 
   location = 'madison';
   exercises: Observable<Exercise[]>;
-  // adults: Observable<Adult[]>;
-  adults: Adult[] = [];
+  adults: Observable<Adult[]>;
+  // adults: Adult[] = [];
   adultsDB:  any;
   eValues: Exercise[];
   aValues: Adult[];
@@ -150,44 +150,44 @@ export class CreateSessionPage implements OnInit {
 
   async ngOnInit() {
     this.exercises = this.dataService.getExercises();
-    // this.adults = this.dataService.getAdults();
-    this.loadAdults();
-    // this.loadAdultsDB();
-    console.log("ExerValues",this.exerValues);
+    this.adults = this.dataService.getAdults();
+    // this.loadAdults();
+    this.loadAdultsDB();
+    // console.log("ExerValues",this.exerValues);
     await this.storage.create();
 
   }
 
-  loadAdults(){
-    this.dataService.getAdultsStorage().then((adults)=>{
-      this.adults=adults;
-      console.log('Se cargaron correctamente todos ', this.adults);
-    });
-  }
-
-
-  // async loadAdultsDB() {
-  //   let err: boolean = false;
-  //   try {
-  //     let value = await this.adultData.getAdults();
-  //     console.log(value);
-  //     this.adultsDB = value;
-  //     console.log("Este es AdultsDB ", this.adultsDB);
-  //     if (value == null) {
-  //       err = true;
-
-  //       console.log('No se encontraron adultos para cargar');
-  //     } else {
-
-  //       console.log('Se cargaron correctamente');
-        
-  //     }
-  //   } catch (error) {
-  //     console.log('Hubo un error trayendo los adultos: ');
-  //     console.log(error);
-  //   }
-
+  // loadAdults(){
+  //   this.dataService.getAdultsStorage().then((adults)=>{
+  //     this.adults=adults;
+  //     console.log('Se cargaron correctamente todos ', this.adults);
+  //   });
   // }
+
+
+  async loadAdultsDB() {
+    let err: boolean = false;
+    try {
+      let value = await this.adultData.getAdults();
+      // console.log(value);
+      this.adultsDB = value;
+      // console.log("Este es AdultsDB ", this.adultsDB);
+      if (value == null) {
+        err = true;
+
+        console.log('No se encontraron adultos para cargar');
+      } else {
+
+        console.log('Se cargaron correctamente los adultos');
+        
+      }
+    } catch (error) {
+      console.log('Hubo un error trayendo los adultos: ');
+      console.log(error);
+    }
+
+  }
 
   compareWith(o1: Exercise, o2: Exercise | Exercise[]) {
     if (!o1 || !o2) {
@@ -204,11 +204,11 @@ export class CreateSessionPage implements OnInit {
   async submit(){
     console.log("submitted");
     var date = new Date();
-    //let dateFormat =this.datepipe.transform(date, 'yyyy-MM-dd');
+    let dateFormat =this.datepipe.transform(date, 'yyyy-MM-dd');
     this.user = await this.storage.get('user');
-    console.log(this.user);
+    // console.log(this.user);
 
-    await this.storage.set('workSession', {'id':this.sessionId,'exercises':this.exerValues,'adult':this.aValues, 'user':this.user ,'date':date});
+    await this.storage.set('workSession', {'id':this.sessionId,'exercises':this.eValues,'adult':this.aValues, 'user':this.user ,'date':dateFormat});
     this.sessionId++;
     
     const auxiliar = await this.storage.get('workSession');
@@ -227,7 +227,7 @@ export class CreateSessionPage implements OnInit {
   adultValue(event: Event){
     // console.log(event.detail.value);
     this.aValues = (event as CustomEvent).detail.value;
-    console.log(this.aValues);
+    // console.log(this.aValues);
   }
 
   async presentAlertConfirm() {

@@ -36,7 +36,7 @@ export class RegisterPage implements OnInit {
       if (form.invalid) {
         return;
       }
-      // await this.userService.insertUser(this.user);
+      await this.userService.insertUser(this.user);
       this.presentToast("Se ha registrado exitosamente.", "success");
       this.router.navigateByUrl('/login');
     } catch (error) {

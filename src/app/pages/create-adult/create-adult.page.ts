@@ -22,7 +22,7 @@ export class CreateAdultPage implements OnInit {
   }
 
   onSignup(form: NgForm){
-    console.log(form);
+    // console.log(form);
     if (form.valid) {
       //this.userData.signupAdult(this.user);
       this.dataService.addAdultStorage(this.adult);

@@ -34,9 +34,9 @@ export class ExercisePage implements OnInit {
   constructor( private dataService: DataService, private storage: Storage, public router: Router) { }
 
   ngOnInit() {
-    // this.exercises = this.dataService.getExercises();
+    this.exercises = this.dataService.getExercises();
     this.getExercises().then((res) => {
-      console.log(res);
+      // console.log(res);
       this.setSessionExercises(res.exercises);
       this.setSessionAdult(res.adult);
     });
@@ -44,11 +44,11 @@ export class ExercisePage implements OnInit {
   }
 
   segmentChanged(ev: any, i) {
-    console.log('Segment changed', ev);
-    console.log(ev.detail.value);
-    console.log('Index'+i);
-    console.log(this.mediaObservations);
-    console.log(this.exerciseObservations);
+    // console.log('Segment changed', ev);
+    // console.log(ev.detail.value);
+    // console.log('Index'+i);
+    // console.log(this.mediaObservations);
+    // console.log(this.exerciseObservations);
     //this.results.push(ev.detail.value);
     //value=1 correcto; value=0 erroneo
     this.results.splice(i, 1, ev.detail.value);
@@ -69,7 +69,7 @@ export class ExercisePage implements OnInit {
   }
 
   async onClick(){
-    console.log(this.results);
+    // console.log(this.results);
     await this.storage.set('MediaObservations',this.mediaObservations);
     await this.storage.set('ExerciseObservations', this.exerciseObservations);
     await this.storage.set('WorkSessionResults', this.results);

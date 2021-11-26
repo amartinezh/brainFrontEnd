@@ -26,6 +26,7 @@ export class SessionResultsPage implements OnInit {
   adult: Adult;
   user: User;
   date: Date;
+  dateFormatted: string;
   exercises: Exercise[];
   sessionId: any;
   results: string[];
@@ -50,9 +51,11 @@ export class SessionResultsPage implements OnInit {
 
     await this.getData();
 
+    
     this.session.id_user=this.user.id;
     this.session.id_adult=this.adult.id;
-    this.session.date=""+this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDate();
+    // this.session.date=""+this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDate();
+    this.session.date=this.dateFormatted;
     this.session.exercises=this.exercises;
     this.session.exerciseObservations=this.exerciseObservations;
 
@@ -65,6 +68,7 @@ export class SessionResultsPage implements OnInit {
     this.user = auxiliar.user;
     this.adult = auxiliar.adult;
     this.date = auxiliar.date;
+    this.dateFormatted = auxiliar.date;
     this.exercises = auxiliar.exercises;
     //this.sessionId = auxiliar.id;
     this.results = auxiliar.results;
@@ -73,63 +77,66 @@ export class SessionResultsPage implements OnInit {
     const aux = await this.storage.get('MediaObservations');
     this.mediaObservations = aux;
 
-    console.log("Media Observations",this.mediaObservations);
+    // console.log("Media Observations",this.mediaObservations);
 
     this.loaded = true;
 
   }
 
-  async onClick(){
-    console.log("Sesion guardada.");
-    console.log(this.session.observations);
-    //this.router.navigateByUrl('/home');
-  }
+  // async onClick(){
+  //   console.log("Sesion guardada.");
+  //   console.log(this.session.observations);
+  //   //this.router.navigateByUrl('/home');
+  // }
 
 
   async onSignup() {
     let err: boolean = false;
     try {
-      // await this.sessionService.insertSession(this.session);
-      // this.sessionId = await this.sessionService.getSessionId(this.session);
+      await this.sessionService.insertSession(this.session);
 
-      // for (let i = 0; i < this.exercises.length; i++) {
-      //   this.exercisesId[i] = this.exercises[i].id;
-      // }
-
-      // this.sessionExercise.id_session = this.sessionId['id'];
-      // this.sessionExercise.id_exercise = this.exercisesId;
-      // this.sessionExercise.correct = this.results;
-      // this.sessionExercise.observations = this.exerciseObservations;
-
-      // this.exerciseMedia.id_session = this.sessionExercise.id_session;
+      for (let i = 0; i < this.exercises.length; i++) {
+        this.exercisesId[i] = this.exercises[i].id;
+      }
+      setTimeout(async () => {
+        // console.log(await this.sessionService.getSessionId(this.session));
+        this.sessionId = await this.sessionService.getSessionId(this.session)
+        this.sessionExercise.id_session = this.sessionId['id'];
       
-      
-      // let cont = 0;
-      // for (let i = 0; i < this.exercises.length; i++) {
-      //   for(let j = 0 ; j<this.mediaObservations[i].length; j++){
-          
-      //     this.exerciseMedia.id_exercise = this.exercisesId[i];
-      //     this.exerciseMedia.observation=this.mediaObservations[i][j];
-      //     this.exerciseMedia.id_media=cont.toString();
+        this.sessionExercise.id_exercise = this.exercisesId;
+        this.sessionExercise.correct = this.results;
+        this.sessionExercise.observations = this.exerciseObservations;
 
-      //     await this.sessionService.insertExerciseMedia(this.exerciseMedia);
-
-      //     cont++;
-      //   }
+        this.exerciseMedia.id_session = this.sessionExercise.id_session;
         
-      // }
+        
+        let cont = 0;
+        for (let i = 0; i < this.exercises.length; i++) {
+          for(let j = 0 ; j<this.mediaObservations[i].length; j++){
+            
+            this.exerciseMedia.id_exercise = this.exercisesId[i];
+            this.exerciseMedia.observation=this.mediaObservations[i][j];
+            this.exerciseMedia.id_media=cont.toString();
 
-      // console.log(this.sessionExercise);
+            await this.sessionService.insertExerciseMedia(this.exerciseMedia);
 
-      // await this.sessionService.insertSessionExercise(this.sessionExercise);
-      this.presentToast("La sesion ha sido guardada exitosamente.", "success");
+            cont++;
+          }
+          
+        }
 
+        // console.log(this.sessionExercise);
+
+        await this.sessionService.insertSessionExercise(this.sessionExercise);
+        this.presentToast("La sesion ha sido guardada exitosamente.", "success");
+        this.router.navigateByUrl('/home');
+      }, 100);
+      
     } catch (error) {
       console.log('Al parecer hubo un error al insertar la sesion en la Base de Datos.');
       console.log(error);
       this.router.navigateByUrl('/home');
     }
-    this.router.navigateByUrl('/home');
 
   }
 
