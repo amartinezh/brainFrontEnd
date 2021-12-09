@@ -8,6 +8,16 @@
       "id": "1",
       "media": ["¿Cuál es su fecha de nacimiento?","¿Cuál es el lugar donde pasó su infancia?","¿Quién era tu padre?","¿Quién era tu madre?","¿Cómo se llaman tus hermanos/as?","¿Cuál era la escuela a la que ibas?","¿Vivías en la ciudad o en el campo?","¿Cuál fue tu primer trabajo?","¿Cuál es la fecha de tu matrimonio?","¿En qué iglesia te casaste?","¿Quiénes son tus hijos?","¿Cuál es el viaje que más te ha gustado?","¿Cuál es el mayor logro de tu vida?","¿Cuántos nietos tienes?","¿Cómo se llaman tus nietos?","¿Cuál es tu lugar donde vives ahora?"],
       "mediaType":"Questions"
+    },{
+      "exerciseNumber": "Ejercicio 1.2",
+      "icon": "./assets/img/brain2.png",
+      "title": "Aplicación de un cuestionario de Memoria biográfica.",
+      "description": "Se le deben hacer preguntas al adulto mayor referentes a su vida y debe responder correctamente.",
+      "content":"",
+      "module": "1",
+      "id": "2",
+      "media": ["¿Cuál ha sido el momento más feliz de su vida?","¿En qué año cumplió la mayoría de edad?","¿Cuándo fue la primera vez que salió a votar?","¿A dónde fue su último viaje?"],
+      "mediaType":"Questions"
     },
     {
       "exerciseNumber": "Ejercicio 1.3",

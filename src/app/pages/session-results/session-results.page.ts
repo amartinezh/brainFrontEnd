@@ -130,7 +130,7 @@ export class SessionResultsPage implements OnInit {
         await this.sessionService.insertSessionExercise(this.sessionExercise);
         this.presentToast("La sesion ha sido guardada exitosamente.", "success");
         this.router.navigateByUrl('/home');
-      }, 100);
+      }, 200);
       
     } catch (error) {
       console.log('Al parecer hubo un error al insertar la sesion en la Base de Datos.');

@@ -16,7 +16,7 @@
         <p>{{exercise?.description}}</p>
 
         <hr>
-        <ion-item detail="false" *ngIf="exercise?.media">
+        <ion-item detail="false" *ngIf="exercise?.media && (exercise?.mediaType == 'img' || !exercise?.mediaType)">
             <ion-slides pager="true">
                 <ion-slide *ngFor="let m of exercise?.media">
                     <ion-img [src]="m"></ion-img>
